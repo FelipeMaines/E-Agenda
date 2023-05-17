@@ -3,19 +3,18 @@
     public class Tarefa
     {
         public int id;
-        public string titulo;
+        public string nome;
         public string prioridade;
 
-        public Tarefa(int id, string titulo, string prioridade)
+        public Tarefa(string nome, string prioridade)
         {
-            this.id = id;
-            this.titulo = titulo;
+            this.nome = nome;
             this.prioridade = prioridade;
         }
 
         public override string ToString()
         {
-            return "id: " + id + ", nome: " + titulo + ", empresa: " + prioridade;
+            return "id: " + id + "\t nome: " + nome + "\t Prioridade: " + prioridade;
         }
     }
 

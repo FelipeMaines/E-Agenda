@@ -12,9 +12,27 @@ namespace E_Agenda.WinApp.ModuloContato
 {
     public partial class TelaContatoForm : Form
     {
+        private Contato contato;
         public TelaContatoForm()
         {
             InitializeComponent();
+        }
+
+        public Contato Contato
+        {
+            set
+            {
+                tbIdContato.Text = value.id.ToString();
+                tbNomeContato.Text = value.nome;
+                tbTelefoneContato.Text = value.telefone;
+                tbEmailContato.Text = value.email;
+                tbCargoContato.Text = value.cargo;
+                tbEmpresaContato.Text = value.empresa;
+            }
+            get
+            {
+                return contato;
+            }
         }
 
         private void btnGravar_Click(object sender, EventArgs e)
@@ -29,7 +47,7 @@ namespace E_Agenda.WinApp.ModuloContato
 
             string empresa = tbEmpresaContato.Text;
 
-            Contato contato = new Contato(nome, email, telefone, empresa, cargo);
+            contato = new Contato(nome, email, telefone, empresa, cargo);
 
             
         }

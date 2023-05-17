@@ -1,4 +1,5 @@
 using E_Agenda.WinApp.Compartilhado;
+using E_Agenda.WinApp.ModuloCompromisso;
 using E_Agenda.WinApp.ModuloContato;
 using E_Agenda.WinApp.ModuloTarefa;
 
@@ -12,6 +13,8 @@ namespace E_Agenda.WinApp
         }
 
         private RepositorioContato repositorioContato = new RepositorioContato();
+        private RepositorioTarefa repositorioTarefa = new RepositorioTarefa();
+        private RepositorioCompromisso repositorioCompromisso = new RepositorioCompromisso();
         private ControladorBase controlador;
 
         private void contatosMenuItem_Click(object sender, EventArgs e)
@@ -28,7 +31,16 @@ namespace E_Agenda.WinApp
         {
             labelTipoCadastro.Text = "cadastro De Tarefas";
 
-            controlador = new ControladorTarefa();
+            controlador = new ControladorTarefa(repositorioTarefa);
+
+            ConfigurarTelaPrincipal(controlador);
+        }
+
+        private void compromissosMenuItem_Click(object sender, EventArgs e)
+        {
+            labelTipoCadastro.Text = "cadastro De Compromissos";
+
+            controlador = new ControladorCompromisso(repositorioCompromisso);
 
             ConfigurarTelaPrincipal(controlador);
         }
@@ -40,7 +52,7 @@ namespace E_Agenda.WinApp
             ConfigurarListagem(controlador);
         }
 
-       
+
         private void btnInserir_Click(object sender, EventArgs e)
         {
             controlador.Inserir();
@@ -64,5 +76,17 @@ namespace E_Agenda.WinApp
 
             panelRegistros.Controls.Add(listagem);
         }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            controlador.Editar();
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            controlador.Excluir();
+        }
+
+       
     }
 }

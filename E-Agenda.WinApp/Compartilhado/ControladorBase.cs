@@ -19,6 +19,10 @@ namespace E_Agenda.WinApp.Compartilhado
         public abstract UserControl ObterListagem();
 
         public abstract string ObterTipoCadastro();
+
+        public abstract void Editar();
+
+        public abstract void Excluir();
         
     }
 }

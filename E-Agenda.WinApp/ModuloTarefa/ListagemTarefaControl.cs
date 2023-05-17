@@ -19,13 +19,10 @@ namespace E_Agenda.WinApp.ModuloTarefa
         {
             InitializeComponent();
 
-            tarefas.Add(new Tarefa(1, "Fazer Pizza", "Nivel: 9999"));
-            tarefas.Add(new Tarefa(1, "e-Agenda", "Nivel: 1"));
+            tarefas.Add(new Tarefa("Fazer Pizza", "9999"));
+            tarefas.Add(new Tarefa("e-Agenda", "1"));
 
-            foreach (Tarefa tarefa in tarefas)
-            {
-                listTarefas.Items.Add(tarefa);
-            }
+            
         }
 
         private void ListagemTarefaControl_Load(object sender, EventArgs e)
@@ -38,6 +35,20 @@ namespace E_Agenda.WinApp.ModuloTarefa
 
         }
 
+        public void AtualizarRegistros(List<Tarefa> tarefas)
+        {
+            listTarefas.Items.Clear();
+
+            foreach (Tarefa tarefa in tarefas)
+            {
+                listTarefas.Items.Add(tarefa);
+            }
+        }
+
+        internal Tarefa ObterTarefaSelecionada()
+        {
+            return (Tarefa)listTarefas.SelectedItem;
+        }
     }
 
 }

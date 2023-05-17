@@ -17,16 +17,22 @@ namespace E_Agenda.WinApp.ModuloContato
         public ListaContatoControl()
         {
             InitializeComponent();
+        }
 
-            contatos.Add(new Contato( "Felipe Maines", "uniplac", "a", "b", "d"));
-            contatos.Add(new Contato("Alisson Scopel", "Academia programador", "a", "b", "d"));
+        public void AtualizarRegistros(List<Contato> contatos)
+        {
+            listContato.Items.Clear();
 
-            foreach (Contato contato in contatos)
+            foreach (Contato item in contatos)
             {
-                listContato.Items.Add(contato);
+                listContato.Items.Add(item);
             }
         }
 
+        internal Contato ObterContatoSelecionado()
+        {
+            return (Contato)listContato.SelectedItem;
+        }
     }
 
 }
