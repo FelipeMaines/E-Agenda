@@ -29,43 +29,81 @@ namespace E_Agenda.WinApp.ModuloContato
             if(opcaoEscolhida == DialogResult.OK)
             {
                 Contato contato = telaContato.Contato;
-                RechamarVerificacao(ref telaContato, ref opcaoEscolhida, ref contato);
 
+                if (Verificar(ref telaContato, ref opcaoEscolhida, ref contato))
+                {
                 repositorioContato.Inserir(contato);
-
                 CarregarContatos();
+                }
             }
 
+            else
+            {
+                MessageBox.Show("Cancelado!");
+                return;
+            }
         }
 
-        private static void RechamarVerificacao(ref TelaContatoForm telaContato, ref DialogResult opcaoEscolhida, ref Contato contato)
+        private void RechamarVerificacao(ref TelaContatoForm telaContato, ref DialogResult opcaoEscolhida, ref Contato contato)
         {
-            if (!IsValidEmail(contato.email))
+            telaContato = new TelaContatoForm();
+
+            opcaoEscolhida = telaContato.ShowDialog();
+
+            if (opcaoEscolhida == DialogResult.OK)
             {
-                MessageBox.Show("Email Invalido");
+                contato = telaContato.Contato;
 
-                telaContato = new TelaContatoForm();
-
-                opcaoEscolhida = telaContato.ShowDialog();
-
-                if (opcaoEscolhida == DialogResult.OK)
+                if(Verificar(ref telaContato, ref opcaoEscolhida, ref contato))
                 {
-                    contato = telaContato.Contato;
+                    repositorioContato.Inserir(contato);
+
+                    CarregarContatos();
                 }
 
-                if (!IsValidEmail(contato.email))
-                    RechamarVerificacao(ref telaContato, ref opcaoEscolhida, ref contato);
             }
+
+            else
+                return;
         }
 
-        public override UserControl ObterListagem()
+                
+
+        public bool IsValidEmail(string email)
         {
-            if (listagemContato == null)
-                listagemContato = new ListaContatoControl();
+            string pattern = @"^[\w\.-]+@[\w\.-]+\.\w+$";
 
-            CarregarContatos();
+            Match match = Regex.Match(email, pattern, RegexOptions.IgnoreCase);
 
-            return listagemContato;
+            return match.Success;
+        }
+
+        private bool isValidNumber(string numero)
+        {
+            if (numero.Length != 11)
+                return false;
+
+            return true;
+        }
+
+        private bool Verificar(ref TelaContatoForm telaContato, ref DialogResult opcaoEscolhida, ref Contato contato)
+        {
+
+            if(!IsValidEmail(contato.email))
+            {
+                MessageBox.Show("Email Invalido");
+                RechamarVerificacao(ref telaContato, ref opcaoEscolhida, ref contato);
+                return false;
+            }
+
+            if(!isValidNumber(contato.telefone))
+            {
+                MessageBox.Show("Numero de telefone deve ter 11 digitos");
+                RechamarVerificacao(ref telaContato, ref opcaoEscolhida, ref contato);
+                return false;
+            }
+
+            return true;
         }
 
         public override string ObterTipoCadastro()
@@ -79,6 +117,16 @@ namespace E_Agenda.WinApp.ModuloContato
 
             listagemContato.AtualizarRegistros(contatos);
         }
+        public override UserControl ObterListagem()
+        {
+            if (listagemContato == null)
+                listagemContato = new ListaContatoControl();
+
+            CarregarContatos();
+
+            return listagemContato;
+        }
+
 
         public override void Editar()
         {
@@ -134,14 +182,7 @@ namespace E_Agenda.WinApp.ModuloContato
             }
         }
 
-        public static bool IsValidEmail(string email)
-        {
-            string pattern = @"^[\w\.-]+@[\w\.-]+\.\w+$";
-
-            Match match = Regex.Match(email, pattern, RegexOptions.IgnoreCase);
-
-            return match.Success;
-        }
+      
     }
     
 }
