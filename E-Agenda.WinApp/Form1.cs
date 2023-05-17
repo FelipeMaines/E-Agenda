@@ -55,7 +55,37 @@ namespace E_Agenda.WinApp
 
         private void btnInserir_Click(object sender, EventArgs e)
         {
+            if (!VerificarNullControlador())
+                return;
+
             controlador.Inserir();
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            if (!VerificarNullControlador())
+                return;
+
+            controlador.Editar();
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            if (!VerificarNullControlador())
+                return;
+
+            controlador.Excluir();
+        }
+
+        private bool VerificarNullControlador()
+        {
+            if (controlador == null)
+            {
+                MessageBox.Show("Selecione uma area primeiro!", "Selecione uma area", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            return true;
         }
 
         private void ConfirgurarToolTips(ControladorBase controlador)
@@ -77,16 +107,8 @@ namespace E_Agenda.WinApp
             panelRegistros.Controls.Add(listagem);
         }
 
-        private void btnEditar_Click(object sender, EventArgs e)
-        {
-            controlador.Editar();
-        }
-
-        private void btnExcluir_Click(object sender, EventArgs e)
-        {
-            controlador.Excluir();
-        }
-
        
+
+
     }
 }

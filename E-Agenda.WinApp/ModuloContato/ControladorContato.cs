@@ -1,4 +1,5 @@
 ﻿using E_Agenda.WinApp.Compartilhado;
+using System.Text.RegularExpressions;
 
 namespace E_Agenda.WinApp.ModuloContato
 {
@@ -28,12 +29,33 @@ namespace E_Agenda.WinApp.ModuloContato
             if(opcaoEscolhida == DialogResult.OK)
             {
                 Contato contato = telaContato.Contato;
+                RechamarVerificacao(ref telaContato, ref opcaoEscolhida, ref contato);
 
                 repositorioContato.Inserir(contato);
 
                 CarregarContatos();
             }
 
+        }
+
+        private static void RechamarVerificacao(ref TelaContatoForm telaContato, ref DialogResult opcaoEscolhida, ref Contato contato)
+        {
+            if (!IsValidEmail(contato.email))
+            {
+                MessageBox.Show("Email Invalido");
+
+                telaContato = new TelaContatoForm();
+
+                opcaoEscolhida = telaContato.ShowDialog();
+
+                if (opcaoEscolhida == DialogResult.OK)
+                {
+                    contato = telaContato.Contato;
+                }
+
+                if (!IsValidEmail(contato.email))
+                    RechamarVerificacao(ref telaContato, ref opcaoEscolhida, ref contato);
+            }
         }
 
         public override UserControl ObterListagem()
@@ -110,6 +132,15 @@ namespace E_Agenda.WinApp.ModuloContato
 
                 CarregarContatos();
             }
+        }
+
+        public static bool IsValidEmail(string email)
+        {
+            string pattern = @"^[\w\.-]+@[\w\.-]+\.\w+$";
+
+            Match match = Regex.Match(email, pattern, RegexOptions.IgnoreCase);
+
+            return match.Success;
         }
     }
     

@@ -25,5 +25,7 @@ namespace E_Agenda.WinApp.ModuloCompromisso
         {
             return "id: " + id + "\t assunto: " + assunto + "\t local: " + local + "\t data: " + data + "\t horaInicio: " + horaInicio + "\t horaFinal: " + horaFinal;
         }
+
+        
     }
 }

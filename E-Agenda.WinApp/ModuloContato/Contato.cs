@@ -24,6 +24,8 @@ namespace E_Agenda.WinApp.ModuloContato
         {
             return "id: " + id + "\t nome: " + nome + "\t empresa: " + empresa + "\t cargo: " + cargo + "\t telefone: " + telefone + "\t email: " + email;
         }
+
+
     }
 
 }

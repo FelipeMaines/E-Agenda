@@ -79,7 +79,7 @@
             label3.Anchor = AnchorStyles.None;
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.Location = new Point(208, 189);
+            label3.Location = new Point(201, 189);
             label3.Name = "label3";
             label3.Size = new Size(64, 30);
             label3.TabIndex = 3;
@@ -184,9 +184,12 @@
             // tbIdContato
             // 
             tbIdContato.Anchor = AnchorStyles.None;
+            tbIdContato.BackColor = SystemColors.Window;
+            tbIdContato.Cursor = Cursors.No;
             tbIdContato.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            tbIdContato.Location = new Point(571, 235);
+            tbIdContato.Location = new Point(634, 237);
             tbIdContato.Name = "tbIdContato";
+            tbIdContato.ReadOnly = true;
             tbIdContato.Size = new Size(240, 29);
             tbIdContato.TabIndex = 15;
             // 
@@ -195,7 +198,7 @@
             label4.Anchor = AnchorStyles.None;
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
-            label4.Location = new Point(533, 234);
+            label4.Location = new Point(596, 236);
             label4.Name = "label4";
             label4.Size = new Size(32, 30);
             label4.TabIndex = 14;

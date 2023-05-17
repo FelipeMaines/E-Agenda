@@ -1,5 +1,6 @@
 ﻿using E_Agenda.WinApp.ModuloContato;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,6 +11,7 @@ namespace E_Agenda.WinApp.ModuloCompromisso
     public class RepositorioCompromisso
     {
         List<Compromisso> compromissos = new List<Compromisso>();
+
         private static int contador = 1;
         public List<Compromisso> SelecionarTodos()
         {

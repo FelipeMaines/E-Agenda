@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 
 namespace E_Agenda.WinApp.ModuloContato
 {
@@ -49,7 +50,9 @@ namespace E_Agenda.WinApp.ModuloContato
 
             contato = new Contato(nome, email, telefone, empresa, cargo);
 
-            
+
         }
+
+       
     }
 }
