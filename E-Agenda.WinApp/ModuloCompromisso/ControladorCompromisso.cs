@@ -178,7 +178,7 @@ namespace E_Agenda.WinApp.ModuloCompromisso
 
                 if (data == dataItem)
                 {
-                    if(horaComecoItem < horaInicio && horaComecoItem < horaFinal)
+                    if(horaComecoItem <= horaInicio && horaComecoItem <= horaFinal)
                     {
                         MessageBox.Show("Horario ja ocupado!");
                         return false;

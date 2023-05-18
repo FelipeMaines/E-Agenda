@@ -67,7 +67,7 @@ namespace E_Agenda.WinApp.ModuloCompromisso
 
             foreach (Compromisso item in compromissos)
             {
-                if (dataInicial > DateTime.Now)
+                if (DateTime.Parse(item.data) > dataInicial && DateTime.Parse(item.data) < dataFinal)
                 {
                     compromissosFuturos.Add(item);
                 }
