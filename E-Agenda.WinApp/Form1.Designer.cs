@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             menuStrip = new MenuStrip();
             cadastrosToolStripMenuItem = new ToolStripMenuItem();
             contatosMenuItem = new ToolStripMenuItem();
@@ -49,9 +50,12 @@
             toolStripSeparator1 = new ToolStripSeparator();
             labelTipoCadastro = new ToolStripLabel();
             panelRegistros = new Panel();
+            comboBox1 = new ComboBox();
+            btnFiltro = new ToolStripButton();
             menuStrip.SuspendLayout();
             statusStrip1.SuspendLayout();
             toolStrip1.SuspendLayout();
+            panelRegistros.SuspendLayout();
             SuspendLayout();
             // 
             // menuStrip
@@ -133,7 +137,7 @@
             // 
             // toolStrip1
             // 
-            toolStrip1.Items.AddRange(new ToolStripItem[] { btnInserir, btnEditar, btnExcluir, toolStripSeparator1, labelTipoCadastro });
+            toolStrip1.Items.AddRange(new ToolStripItem[] { btnInserir, btnEditar, btnExcluir, btnFiltro, toolStripSeparator1, labelTipoCadastro });
             toolStrip1.Location = new Point(0, 24);
             toolStrip1.Name = "toolStrip1";
             toolStrip1.Size = new Size(664, 37);
@@ -188,11 +192,31 @@
             // panelRegistros
             // 
             panelRegistros.BorderStyle = BorderStyle.FixedSingle;
+            panelRegistros.Controls.Add(comboBox1);
             panelRegistros.Dock = DockStyle.Fill;
             panelRegistros.Location = new Point(0, 61);
             panelRegistros.Name = "panelRegistros";
             panelRegistros.Size = new Size(664, 379);
             panelRegistros.TabIndex = 3;
+            // 
+            // comboBox1
+            // 
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Location = new Point(217, 153);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(121, 23);
+            comboBox1.TabIndex = 0;
+            // 
+            // btnFiltro
+            // 
+            btnFiltro.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            btnFiltro.Image = (Image)resources.GetObject("btnFiltro.Image");
+            btnFiltro.ImageTransparentColor = Color.Magenta;
+            btnFiltro.Margin = new Padding(7);
+            btnFiltro.Name = "btnFiltro";
+            btnFiltro.Size = new Size(23, 23);
+            btnFiltro.Text = "toolStripButton1";
+            btnFiltro.Click += toolStripbtnFiltro_Click;
             // 
             // Form1
             // 
@@ -213,6 +237,7 @@
             statusStrip1.PerformLayout();
             toolStrip1.ResumeLayout(false);
             toolStrip1.PerformLayout();
+            panelRegistros.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -239,5 +264,7 @@
         private Panel panelRegistros;
         private ToolStripSeparator toolStripSeparator1;
         private ToolStripLabel labelTipoCadastro;
+        private ComboBox comboBox1;
+        private ToolStripButton btnFiltro;
     }
 }

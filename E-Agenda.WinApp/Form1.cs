@@ -107,8 +107,9 @@ namespace E_Agenda.WinApp
             panelRegistros.Controls.Add(listagem);
         }
 
-       
-
-
+        private void toolStripbtnFiltro_Click(object sender, EventArgs e)
+        {
+            controlador.Filtro();
+        }
     }
 }

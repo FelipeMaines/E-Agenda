@@ -141,6 +141,7 @@ namespace E_Agenda.WinApp.ModuloContato
 
                 return;
             }
+
             int id = 0;
             TelaContatoForm telaContato = new TelaContatoForm();
             telaContato.Contato = contato;
@@ -150,10 +151,15 @@ namespace E_Agenda.WinApp.ModuloContato
 
             if (opcaoEscolhida == DialogResult.OK)
             {
-                telaContato.Contato.id = id;
-                repositorioContato.Editar(telaContato.Contato);
+                    telaContato.Contato.id = id;
+                    repositorioContato.Editar(telaContato.Contato);
 
-                CarregarContatos();
+                    CarregarContatos();
+            }
+            else
+            {
+                MessageBox.Show("Cancelado!");
+                return;
             }
         }
 
@@ -182,7 +188,10 @@ namespace E_Agenda.WinApp.ModuloContato
             }
         }
 
-      
+        public override void Filtro()
+        {
+            throw new NotImplementedException();
+        }
     }
     
 }

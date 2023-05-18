@@ -52,5 +52,10 @@ namespace E_Agenda.WinApp.ModuloCompromisso
         {
 
         }
+
+        private void radioButtonPresencial_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

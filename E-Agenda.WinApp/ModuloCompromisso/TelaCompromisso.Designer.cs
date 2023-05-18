@@ -46,7 +46,11 @@
             radioButtonPresencial = new RadioButton();
             radioButtonOnline = new RadioButton();
             caixaRadios = new GroupBox();
+            groupBox1 = new GroupBox();
+            radioButton1 = new RadioButton();
+            radioButton2 = new RadioButton();
             caixaRadios.SuspendLayout();
+            groupBox1.SuspendLayout();
             SuspendLayout();
             // 
             // tbIdCompromisso
@@ -211,19 +215,20 @@
             // 
             radioButtonPresencial.AutoSize = true;
             radioButtonPresencial.ForeColor = SystemColors.ActiveCaptionText;
-            radioButtonPresencial.Location = new Point(11, 22);
+            radioButtonPresencial.Location = new Point(11, 10);
             radioButtonPresencial.Name = "radioButtonPresencial";
             radioButtonPresencial.Size = new Size(78, 19);
             radioButtonPresencial.TabIndex = 37;
             radioButtonPresencial.TabStop = true;
             radioButtonPresencial.Text = "Presencial";
             radioButtonPresencial.UseVisualStyleBackColor = true;
+            radioButtonPresencial.CheckedChanged += radioButtonPresencial_CheckedChanged;
             // 
             // radioButtonOnline
             // 
             radioButtonOnline.AutoSize = true;
             radioButtonOnline.ForeColor = SystemColors.ActiveCaptionText;
-            radioButtonOnline.Location = new Point(95, 22);
+            radioButtonOnline.Location = new Point(95, 10);
             radioButtonOnline.Name = "radioButtonOnline";
             radioButtonOnline.Size = new Size(60, 19);
             radioButtonOnline.TabIndex = 38;
@@ -233,14 +238,50 @@
             // 
             // caixaRadios
             // 
+            caixaRadios.Controls.Add(groupBox1);
             caixaRadios.Controls.Add(radioButtonPresencial);
             caixaRadios.Controls.Add(radioButtonOnline);
             caixaRadios.ForeColor = SystemColors.Control;
-            caixaRadios.Location = new Point(66, 279);
+            caixaRadios.Location = new Point(93, 269);
             caixaRadios.Name = "caixaRadios";
-            caixaRadios.Size = new Size(200, 100);
+            caixaRadios.Size = new Size(158, 36);
             caixaRadios.TabIndex = 39;
             caixaRadios.TabStop = false;
+            // 
+            // groupBox1
+            // 
+            groupBox1.Controls.Add(radioButton1);
+            groupBox1.Controls.Add(radioButton2);
+            groupBox1.ForeColor = SystemColors.Control;
+            groupBox1.Location = new Point(8, 8);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(158, 36);
+            groupBox1.TabIndex = 40;
+            groupBox1.TabStop = false;
+            // 
+            // radioButton1
+            // 
+            radioButton1.AutoSize = true;
+            radioButton1.ForeColor = SystemColors.ActiveCaptionText;
+            radioButton1.Location = new Point(11, 10);
+            radioButton1.Name = "radioButton1";
+            radioButton1.Size = new Size(78, 19);
+            radioButton1.TabIndex = 37;
+            radioButton1.TabStop = true;
+            radioButton1.Text = "Presencial";
+            radioButton1.UseVisualStyleBackColor = true;
+            // 
+            // radioButton2
+            // 
+            radioButton2.AutoSize = true;
+            radioButton2.ForeColor = SystemColors.ActiveCaptionText;
+            radioButton2.Location = new Point(95, 10);
+            radioButton2.Name = "radioButton2";
+            radioButton2.Size = new Size(60, 19);
+            radioButton2.TabIndex = 38;
+            radioButton2.TabStop = true;
+            radioButton2.Text = "Online";
+            radioButton2.UseVisualStyleBackColor = true;
             // 
             // TelaCompromisso
             // 
@@ -267,6 +308,8 @@
             Text = "TelaCompromisso";
             caixaRadios.ResumeLayout(false);
             caixaRadios.PerformLayout();
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -291,5 +334,8 @@
         private RadioButton radioButtonPresencial;
         private RadioButton radioButtonOnline;
         private GroupBox caixaRadios;
+        private GroupBox groupBox1;
+        private RadioButton radioButton1;
+        private RadioButton radioButton2;
     }
 }

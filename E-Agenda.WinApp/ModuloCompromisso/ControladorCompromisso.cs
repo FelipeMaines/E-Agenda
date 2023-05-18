@@ -100,6 +100,45 @@ namespace E_Agenda.WinApp.ModuloCompromisso
             }
         }
 
+        public override void Filtro()
+        {
+            TelaFiltro telaFiltro = new TelaFiltro();
+
+            if(telaFiltro.ShowDialog() == DialogResult.OK)
+            {
+                var statusSelecionado = telaFiltro.StatusSelecionado;
+                DateTime dataInicial = telaFiltro.PegarDataInicial();
+                DateTime dataFinal = telaFiltro.PegarDataFinal();
+
+                CarregarCompromissoComFiltro(statusSelecionado, dataInicial, dataFinal);
+            }
+        }
+
+        private void CarregarCompromissoComFiltro(TelaFiltro.statusCompromissoEnum statusSelecionado, DateTime dataInicial, DateTime dataFinal)
+        {
+            string tipoCompromisso;
+            List<Compromisso> compromissos = new List<Compromisso>();
+
+            switch (statusSelecionado)
+            {
+                case TelaFiltro.statusCompromissoEnum.passado:
+                    compromissos = repositorioCompromisso.SelecionarCompromissosPassados(DateTime.Now);
+                    break;
+
+                case TelaFiltro.statusCompromissoEnum.futuro:
+                    compromissos = repositorioCompromisso.SelecionarCompromissosFuturos(dataInicial, dataFinal);
+                    break;
+
+                case TelaFiltro.statusCompromissoEnum.todos:
+                    compromissos = repositorioCompromisso.SelecionarTodos();
+                    tipoCompromisso = string.Empty;
+                    break;
+            }
+
+            listagemCompromisso.AtualizarRegistros(compromissos);
+
+        }
+
         public override UserControl ObterListagem()
         {
 
@@ -149,5 +188,7 @@ namespace E_Agenda.WinApp.ModuloCompromisso
             }
             return true;
         }
+
+
     }
 }

@@ -107,5 +107,10 @@ namespace E_Agenda.WinApp.ModuloTarefa
                 CarregarTarefas();
             }
         }
+
+        public override void Filtro()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -22,6 +22,7 @@ namespace E_Agenda.WinApp.Compartilhado
 
         public abstract void Editar();
 
+        public abstract void Filtro();
         public abstract void Excluir();
         
     }

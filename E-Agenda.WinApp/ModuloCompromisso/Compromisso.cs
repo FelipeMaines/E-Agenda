@@ -25,7 +25,7 @@ namespace E_Agenda.WinApp.ModuloCompromisso
 
         public override string ToString()
         {
-            return "id: " + id + "\tassunto: " + assunto + "\tlocal: " + local + "\tdata: " + data + "\thoraInicio: " + horaInicio + "\thoraFinal: " + horaFinal + "\n   Comrpromisso: " + online;
+            return "id: " + id + "\tassunto: " + assunto + "\tlocal: " + local + "\tdata: " + data + "\thoraInicio: " + horaInicio + "\thoraFinal: " + horaFinal + "  Comrpromisso: " + online;
         }
 
         
