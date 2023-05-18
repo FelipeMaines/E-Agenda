@@ -11,19 +11,21 @@ namespace E_Agenda.WinApp.ModuloCompromisso
         public string horaInicio;
         public string horaFinal;
         public int id;
+        public string online;
 
-        public Compromisso(string assunto, string local, string data, string horaInicio, string horaFinal)
+        public Compromisso(string assunto, string local, string data, string horaInicio, string horaFinal, string online)
         {
             this.assunto = assunto;
             this.local = local;
             this.data = data;
             this.horaInicio = horaInicio;
             this.horaFinal = horaFinal;
+            this.online = online;
         }
 
         public override string ToString()
         {
-            return "id: " + id + "\t assunto: " + assunto + "\t local: " + local + "\t data: " + data + "\t horaInicio: " + horaInicio + "\t horaFinal: " + horaFinal;
+            return "id: " + id + "\tassunto: " + assunto + "\tlocal: " + local + "\tdata: " + data + "\thoraInicio: " + horaInicio + "\thoraFinal: " + horaFinal + "\n   Comrpromisso: " + online;
         }
 
         

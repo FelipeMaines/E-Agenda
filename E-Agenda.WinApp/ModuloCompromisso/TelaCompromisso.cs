@@ -43,8 +43,14 @@ namespace E_Agenda.WinApp.ModuloCompromisso
             string data = tbDateTime.Text;
             string horaInicio = tbHoraInicioCompromisso.Text;
             string horaFinal = tbHoraFinalCompromisso.Text;
+            string online = caixaRadios.Controls.OfType<RadioButton>().SingleOrDefault(RadioButton => RadioButton.Checked).Text;
 
-            compromisso = new Compromisso(assunto, local, data, horaInicio, horaFinal);
+            compromisso = new Compromisso(assunto, local, data, horaInicio, horaFinal, online);
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

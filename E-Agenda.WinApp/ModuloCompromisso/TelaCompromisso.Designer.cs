@@ -43,6 +43,10 @@
             tbDateTime = new DateTimePicker();
             tbHoraInicioCompromisso = new DateTimePicker();
             tbHoraFinalCompromisso = new DateTimePicker();
+            radioButtonPresencial = new RadioButton();
+            radioButtonOnline = new RadioButton();
+            caixaRadios = new GroupBox();
+            caixaRadios.SuspendLayout();
             SuspendLayout();
             // 
             // tbIdCompromisso
@@ -203,11 +207,47 @@
             tbHoraFinalCompromisso.Size = new Size(240, 29);
             tbHoraFinalCompromisso.TabIndex = 33;
             // 
+            // radioButtonPresencial
+            // 
+            radioButtonPresencial.AutoSize = true;
+            radioButtonPresencial.ForeColor = SystemColors.ActiveCaptionText;
+            radioButtonPresencial.Location = new Point(11, 22);
+            radioButtonPresencial.Name = "radioButtonPresencial";
+            radioButtonPresencial.Size = new Size(78, 19);
+            radioButtonPresencial.TabIndex = 37;
+            radioButtonPresencial.TabStop = true;
+            radioButtonPresencial.Text = "Presencial";
+            radioButtonPresencial.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonOnline
+            // 
+            radioButtonOnline.AutoSize = true;
+            radioButtonOnline.ForeColor = SystemColors.ActiveCaptionText;
+            radioButtonOnline.Location = new Point(95, 22);
+            radioButtonOnline.Name = "radioButtonOnline";
+            radioButtonOnline.Size = new Size(60, 19);
+            radioButtonOnline.TabIndex = 38;
+            radioButtonOnline.TabStop = true;
+            radioButtonOnline.Text = "Online";
+            radioButtonOnline.UseVisualStyleBackColor = true;
+            // 
+            // caixaRadios
+            // 
+            caixaRadios.Controls.Add(radioButtonPresencial);
+            caixaRadios.Controls.Add(radioButtonOnline);
+            caixaRadios.ForeColor = SystemColors.Control;
+            caixaRadios.Location = new Point(66, 279);
+            caixaRadios.Name = "caixaRadios";
+            caixaRadios.Size = new Size(200, 100);
+            caixaRadios.TabIndex = 39;
+            caixaRadios.TabStop = false;
+            // 
             // TelaCompromisso
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(caixaRadios);
             Controls.Add(tbHoraFinalCompromisso);
             Controls.Add(tbHoraInicioCompromisso);
             Controls.Add(tbDateTime);
@@ -225,6 +265,8 @@
             Controls.Add(label2);
             Name = "TelaCompromisso";
             Text = "TelaCompromisso";
+            caixaRadios.ResumeLayout(false);
+            caixaRadios.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -246,5 +288,8 @@
         private DateTimePicker tbDateTime;
         private DateTimePicker tbHoraInicioCompromisso;
         private DateTimePicker tbHoraFinalCompromisso;
+        private RadioButton radioButtonPresencial;
+        private RadioButton radioButtonOnline;
+        private GroupBox caixaRadios;
     }
 }
