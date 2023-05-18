@@ -34,15 +34,15 @@
             btnGravar = new Button();
             label1 = new Label();
             vd = new Label();
-            tbHoraFinalCompromisso = new TextBox();
             b = new Label();
-            tbHoraInicioCompromisso = new TextBox();
             a = new Label();
             tbLocalCompromisso = new TextBox();
             label3 = new Label();
             tbAssuntoCompromisso = new TextBox();
             label2 = new Label();
             tbDateTime = new DateTimePicker();
+            tbHoraInicioCompromisso = new DateTimePicker();
+            tbHoraFinalCompromisso = new DateTimePicker();
             SuspendLayout();
             // 
             // tbIdCompromisso
@@ -112,15 +112,6 @@
             vd.TabIndex = 24;
             vd.Text = "Data";
             // 
-            // tbHoraFinalCompromisso
-            // 
-            tbHoraFinalCompromisso.Anchor = AnchorStyles.None;
-            tbHoraFinalCompromisso.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            tbHoraFinalCompromisso.Location = new Point(514, 192);
-            tbHoraFinalCompromisso.Name = "tbHoraFinalCompromisso";
-            tbHoraFinalCompromisso.Size = new Size(240, 29);
-            tbHoraFinalCompromisso.TabIndex = 23;
-            // 
             // b
             // 
             b.Anchor = AnchorStyles.None;
@@ -131,15 +122,6 @@
             b.Size = new Size(111, 30);
             b.TabIndex = 22;
             b.Text = "Hora Final";
-            // 
-            // tbHoraInicioCompromisso
-            // 
-            tbHoraInicioCompromisso.Anchor = AnchorStyles.None;
-            tbHoraInicioCompromisso.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            tbHoraInicioCompromisso.Location = new Point(514, 152);
-            tbHoraInicioCompromisso.Name = "tbHoraInicioCompromisso";
-            tbHoraInicioCompromisso.Size = new Size(240, 29);
-            tbHoraInicioCompromisso.TabIndex = 21;
             // 
             // a
             // 
@@ -195,16 +177,39 @@
             // tbDateTime
             // 
             tbDateTime.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            tbDateTime.Format = DateTimePickerFormat.Short;
             tbDateTime.Location = new Point(136, 234);
             tbDateTime.Name = "tbDateTime";
             tbDateTime.Size = new Size(240, 29);
             tbDateTime.TabIndex = 31;
+            // 
+            // tbHoraInicioCompromisso
+            // 
+            tbHoraInicioCompromisso.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            tbHoraInicioCompromisso.Format = DateTimePickerFormat.Time;
+            tbHoraInicioCompromisso.Location = new Point(508, 149);
+            tbHoraInicioCompromisso.Name = "tbHoraInicioCompromisso";
+            tbHoraInicioCompromisso.ShowUpDown = true;
+            tbHoraInicioCompromisso.Size = new Size(240, 29);
+            tbHoraInicioCompromisso.TabIndex = 32;
+            // 
+            // tbHoraFinalCompromisso
+            // 
+            tbHoraFinalCompromisso.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            tbHoraFinalCompromisso.Format = DateTimePickerFormat.Time;
+            tbHoraFinalCompromisso.Location = new Point(508, 199);
+            tbHoraFinalCompromisso.Name = "tbHoraFinalCompromisso";
+            tbHoraFinalCompromisso.ShowUpDown = true;
+            tbHoraFinalCompromisso.Size = new Size(240, 29);
+            tbHoraFinalCompromisso.TabIndex = 33;
             // 
             // TelaCompromisso
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(tbHoraFinalCompromisso);
+            Controls.Add(tbHoraInicioCompromisso);
             Controls.Add(tbDateTime);
             Controls.Add(tbIdCompromisso);
             Controls.Add(label4);
@@ -212,9 +217,7 @@
             Controls.Add(btnGravar);
             Controls.Add(label1);
             Controls.Add(vd);
-            Controls.Add(tbHoraFinalCompromisso);
             Controls.Add(b);
-            Controls.Add(tbHoraInicioCompromisso);
             Controls.Add(a);
             Controls.Add(tbLocalCompromisso);
             Controls.Add(label3);
@@ -234,14 +237,14 @@
         private Button btnGravar;
         private Label label1;
         private Label vd;
-        private TextBox tbHoraFinalCompromisso;
         private Label b;
-        private TextBox tbHoraInicioCompromisso;
         private Label a;
         private TextBox tbLocalCompromisso;
         private Label label3;
         private TextBox tbAssuntoCompromisso;
         private Label label2;
         private DateTimePicker tbDateTime;
+        private DateTimePicker tbHoraInicioCompromisso;
+        private DateTimePicker tbHoraFinalCompromisso;
     }
 }

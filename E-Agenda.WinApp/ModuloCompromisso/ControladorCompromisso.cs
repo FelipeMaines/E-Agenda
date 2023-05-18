@@ -2,6 +2,7 @@
 using E_Agenda.WinApp.ModuloContato;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,6 +11,8 @@ namespace E_Agenda.WinApp.ModuloCompromisso
 {
     public class ControladorCompromisso : ControladorBase
     {
+
+        CultureInfo cultureInfo = new CultureInfo("pt-BR");
         RepositorioCompromisso repositorioCompromisso;
         ListagemCompromissoControl listagemCompromisso;
 
@@ -88,6 +91,9 @@ namespace E_Agenda.WinApp.ModuloCompromisso
             {
                 Compromisso compromisso = telaCompromisso.Compromisso;
 
+                if(!verificarOcupacao(compromisso))
+                    return;
+
                 repositorioCompromisso.Inserir(compromisso);
 
                 CarregarCompromisso();
@@ -115,6 +121,33 @@ namespace E_Agenda.WinApp.ModuloCompromisso
         public override string ObterTipoCadastro()
         {
             return "Cadastro de Compromisso";
+        }
+
+        private bool verificarOcupacao(Compromisso compromisso)
+        {
+            List<Compromisso> listaVerificacao = repositorioCompromisso.SelecionarTodos();
+            DateTime data = DateTime.Parse(compromisso.data, cultureInfo);
+
+            DateTime horaInicio = DateTime.Parse(compromisso.horaInicio, cultureInfo);
+            DateTime horaFinal = DateTime.Parse(compromisso.horaFinal, cultureInfo);
+
+            foreach (Compromisso item in listaVerificacao)
+            {
+                DateTime dataItem = DateTime.Parse(item.data, cultureInfo);
+                DateTime horaComecoItem = DateTime.Parse(item.horaInicio, cultureInfo);
+                DateTime horaFinalItem = DateTime.Parse(item.horaFinal, cultureInfo);
+
+                if (data == dataItem)
+                {
+                    if(horaComecoItem < horaInicio && horaComecoItem > horaFinal)
+                    {
+                        MessageBox.Show("Horario ja ocupado!");
+                        return false;
+                    }
+                    
+                }
+            }
+            return true;
         }
     }
 }

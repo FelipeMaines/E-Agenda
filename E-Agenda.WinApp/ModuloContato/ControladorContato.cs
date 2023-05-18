@@ -32,8 +32,8 @@ namespace E_Agenda.WinApp.ModuloContato
 
                 if (Verificar(ref telaContato, ref opcaoEscolhida, ref contato))
                 {
-                repositorioContato.Inserir(contato);
-                CarregarContatos();
+                    repositorioContato.Inserir(contato);
+                    CarregarContatos();
                 }
             }
 
