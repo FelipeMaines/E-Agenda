@@ -11,7 +11,7 @@
         {
             this.nome = nome;
             this.prioridade = prioridade; // a
-            listaItens = new List<Itens>(); //assdsd
+            listaItens = new List<Itens>(); //assdsdada
         }
 
         public override string ToString()
