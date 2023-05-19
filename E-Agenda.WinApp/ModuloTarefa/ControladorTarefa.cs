@@ -13,6 +13,8 @@ namespace E_Agenda.WinApp.ModuloTarefa
 
         public override string ToolTipExcluir { get { return "Excluir Tarefa"; } }
 
+        public override string ToolTipFiltrar { get { return "Filtrar itens"; } }
+
         public ControladorTarefa(RepositorioTarefa repositorioTarefa)
         {
             this.repositorioTarefa = repositorioTarefa;

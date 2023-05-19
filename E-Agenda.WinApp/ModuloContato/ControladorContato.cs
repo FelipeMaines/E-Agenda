@@ -15,6 +15,8 @@ namespace E_Agenda.WinApp.ModuloContato
 
         public override string ToolTipExcluir { get { return "Excluir Contato"; } }
 
+        public override string ToolTipFiltrar { get { return "Filtrar itens"; } }
+
         public ControladorContato(RepositorioContato repositorioContato)
         {
             this.repositorioContato = repositorioContato;

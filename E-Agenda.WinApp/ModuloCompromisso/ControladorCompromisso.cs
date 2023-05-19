@@ -26,6 +26,8 @@ namespace E_Agenda.WinApp.ModuloCompromisso
 
         public override string ToolTipExcluir { get { return "Excluir Compromisso"; } }
 
+        public override string ToolTipFiltrar { get { return "Filtrar itens"; } }
+
         public override void Editar()
         {
 
@@ -178,7 +180,7 @@ namespace E_Agenda.WinApp.ModuloCompromisso
 
                 if (data == dataItem)
                 {
-                    if(horaComecoItem <= horaInicio && horaComecoItem <= horaFinal)
+                    if(horaComecoItem <= horaInicio && horaComecoItem >= horaFinal)
                     {
                         MessageBox.Show("Horario ja ocupado!");
                         return false;
