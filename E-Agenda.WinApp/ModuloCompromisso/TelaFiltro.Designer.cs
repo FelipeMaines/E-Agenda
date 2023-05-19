@@ -65,6 +65,7 @@
             radioFuturo.TabStop = true;
             radioFuturo.Text = "Vizualizar Compromissos Futuros";
             radioFuturo.UseVisualStyleBackColor = true;
+            radioFuturo.CheckedChanged += radioFuturo_CheckedChanged;
             // 
             // radioPassado
             // 
@@ -77,6 +78,7 @@
             radioPassado.TabStop = true;
             radioPassado.Text = "Vizualizar Compromissos Passados";
             radioPassado.UseVisualStyleBackColor = true;
+            radioPassado.CheckedChanged += radioPassado_CheckedChanged;
             // 
             // radioTodos
             // 
@@ -89,6 +91,7 @@
             radioTodos.TabStop = true;
             radioTodos.Text = "Vizualizar todos os compromissos";
             radioTodos.UseVisualStyleBackColor = true;
+            radioTodos.CheckedChanged += radioTodos_CheckedChanged;
             // 
             // gbDatasFuturo
             // 
@@ -96,6 +99,7 @@
             gbDatasFuturo.Controls.Add(tbDataInicial);
             gbDatasFuturo.Controls.Add(b);
             gbDatasFuturo.Controls.Add(a);
+            gbDatasFuturo.Enabled = false;
             gbDatasFuturo.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
             gbDatasFuturo.Location = new Point(130, 229);
             gbDatasFuturo.Name = "gbDatasFuturo";

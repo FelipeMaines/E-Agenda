@@ -122,7 +122,8 @@ namespace E_Agenda.WinApp.ModuloCompromisso
         {
             TelaFiltro telaFiltro = new TelaFiltro();
 
-            if(telaFiltro.ShowDialog() == DialogResult.OK)
+
+            if (telaFiltro.ShowDialog() == DialogResult.OK)
             {
                 var statusSelecionado = telaFiltro.StatusSelecionado;
                 DateTime dataInicial = telaFiltro.PegarDataInicial();
