@@ -19,6 +19,20 @@ namespace E_Agenda.WinApp.ModuloCompromisso
         public ControladorCompromisso(RepositorioCompromisso repositorio)
         {
             this.repositorioCompromisso = repositorio;
+
+            Compromisso compromisso = new Compromisso("pesca", "lago", "12/5/2022", "13:20:00", "19:00:00", "precensical");
+            Compromisso compromisso2 = new Compromisso("Play", "Casa", "21/5/2022", "13:20:00", "19:00:00", "online");
+            Compromisso compromisso3 = new Compromisso("Jogar", "Casa", "22/5/2022", "13:20:00", "19:00:00", "online");
+            Compromisso compromisso4 = new Compromisso("Cartear", "Casa Fallen", "23/5/2022", "19:20:00", "23:50:00", "presencial");
+
+            repositorioCompromisso.Inserir(compromisso);
+            repositorioCompromisso.Inserir(compromisso2);
+            repositorioCompromisso.Inserir(compromisso3);
+            repositorioCompromisso.Inserir(compromisso4);
+
+            ObterListagem();
+            CarregarCompromisso();
+
         }
         public override string ToolTipInserir { get { return "Inserir Novo Compromisso"; } }
 
