@@ -21,9 +21,9 @@ namespace E_Agenda.WinApp.ModuloCompromisso
             this.repositorioCompromisso = repositorio;
 
             Compromisso compromisso = new Compromisso("pesca", "lago", "12/5/2022", "13:20:00", "19:00:00", "precensical");
-            Compromisso compromisso2 = new Compromisso("Play", "Casa", "21/5/2022", "13:20:00", "19:00:00", "online");
-            Compromisso compromisso3 = new Compromisso("Jogar", "Casa", "22/5/2022", "13:20:00", "19:00:00", "online");
-            Compromisso compromisso4 = new Compromisso("Cartear", "Casa Fallen", "23/5/2022", "19:20:00", "23:50:00", "presencial");
+            Compromisso compromisso2 = new Compromisso("Play", "Casa", "21/5/2024", "13:20:00", "19:00:00", "online");
+            Compromisso compromisso3 = new Compromisso("Jogar", "Casa", "22/5/2023", "13:20:00", "19:00:00", "online");
+            Compromisso compromisso4 = new Compromisso("Cartear", "Casa Fallen", "23/5/2023", "19:20:00", "23:50:00", "presencial");
 
             repositorioCompromisso.Inserir(compromisso);
             repositorioCompromisso.Inserir(compromisso2);
@@ -41,6 +41,8 @@ namespace E_Agenda.WinApp.ModuloCompromisso
         public override string ToolTipExcluir { get { return "Excluir Compromisso"; } }
 
         public override string ToolTipFiltrar { get { return "Filtrar itens"; } }
+
+        public override string ToolTipAdicionaritens { get { return "Ver itens"; } }
 
         public override void Editar()
         {
@@ -205,6 +207,9 @@ namespace E_Agenda.WinApp.ModuloCompromisso
             return true;
         }
 
-
+        public override void AdicionarItens()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -76,6 +76,17 @@ namespace E_Agenda.WinApp
 
             controlador.Excluir();
         }
+        private void btnAdicionaItens_Click_1(object sender, EventArgs e)
+        {
+
+            if (!VerificarNullControlador())
+                return;
+
+            controlador.AdicionarItens();
+
+            
+           
+        }
 
         private bool VerificarNullControlador()
         {
@@ -111,5 +122,7 @@ namespace E_Agenda.WinApp
         {
             controlador.Filtro();
         }
+
+
     }
 }

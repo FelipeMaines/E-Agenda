@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             menuStrip = new MenuStrip();
             cadastrosToolStripMenuItem = new ToolStripMenuItem();
             contatosMenuItem = new ToolStripMenuItem();
@@ -47,6 +48,7 @@
             btnEditar = new ToolStripButton();
             btnExcluir = new ToolStripButton();
             btnFiltro = new ToolStripButton();
+            btnAdiconarItem = new ToolStripButton();
             toolStripSeparator1 = new ToolStripSeparator();
             labelTipoCadastro = new ToolStripLabel();
             panelRegistros = new Panel();
@@ -134,7 +136,7 @@
             // 
             // toolStrip1
             // 
-            toolStrip1.Items.AddRange(new ToolStripItem[] { btnInserir, btnEditar, btnExcluir, btnFiltro, toolStripSeparator1, labelTipoCadastro });
+            toolStrip1.Items.AddRange(new ToolStripItem[] { btnInserir, btnEditar, btnExcluir, btnFiltro, btnAdiconarItem, toolStripSeparator1, labelTipoCadastro });
             toolStrip1.Location = new Point(0, 24);
             toolStrip1.Name = "toolStrip1";
             toolStrip1.Size = new Size(664, 37);
@@ -186,6 +188,17 @@
             btnFiltro.Text = "toolStripButton1";
             btnFiltro.ToolTipText = "Filtrar";
             btnFiltro.Click += toolStripbtnFiltro_Click;
+            // 
+            // btnAdiconarItem
+            // 
+            btnAdiconarItem.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            btnAdiconarItem.Image = (Image)resources.GetObject("btnAdiconarItem.Image");
+            btnAdiconarItem.ImageTransparentColor = Color.Magenta;
+            btnAdiconarItem.Name = "btnAdiconarItem";
+            btnAdiconarItem.Padding = new Padding(7);
+            btnAdiconarItem.Size = new Size(34, 34);
+            btnAdiconarItem.Text = "toolStripButton1";
+            btnAdiconarItem.Click += btnAdicionaItens_Click_1;
             // 
             // toolStripSeparator1
             // 
@@ -253,5 +266,6 @@
         private ToolStripSeparator toolStripSeparator1;
         private ToolStripLabel labelTipoCadastro;
         private ToolStripButton btnFiltro;
+        private ToolStripButton btnAdiconarItem;
     }
 }

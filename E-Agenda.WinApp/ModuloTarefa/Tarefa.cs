@@ -5,11 +5,13 @@
         public int id;
         public string nome;
         public string prioridade;
+        public List<Itens> listaItens;
 
         public Tarefa(string nome, string prioridade)
         {
             this.nome = nome;
-            this.prioridade = prioridade;
+            this.prioridade = prioridade; // a
+            listaItens = new List<Itens>(); //assdsd
         }
 
         public override string ToString()

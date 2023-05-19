@@ -45,5 +45,7 @@ namespace E_Agenda.WinApp.ModuloTarefa
 
             tarefa = new Tarefa(nome, prioridade);
         }
+
+        
     }
 }

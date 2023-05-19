@@ -16,6 +16,8 @@ namespace E_Agenda.WinApp.Compartilhado
 
         public abstract string ToolTipFiltrar { get; }
 
+        public abstract string ToolTipAdicionaritens { get; }
+
         public abstract void Inserir();
 
         public abstract UserControl ObterListagem();
@@ -25,7 +27,10 @@ namespace E_Agenda.WinApp.Compartilhado
         public abstract void Editar();
 
         public abstract void Filtro();
+
         public abstract void Excluir();
+
+        public abstract void AdicionarItens();
         
     }
 }

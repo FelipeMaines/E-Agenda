@@ -21,18 +21,6 @@ namespace E_Agenda.WinApp.ModuloTarefa
 
             tarefas.Add(new Tarefa("Fazer Pizza", "9999"));
             tarefas.Add(new Tarefa("e-Agenda", "1"));
-
-            
-        }
-
-        private void ListagemTarefaControl_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void listTarefas_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
 
         public void AtualizarRegistros(List<Tarefa> tarefas)

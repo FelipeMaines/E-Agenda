@@ -17,6 +17,10 @@ namespace E_Agenda.WinApp.ModuloContato
 
         public override string ToolTipFiltrar { get { return "Filtrar itens"; } }
 
+        public override string ToolTipAdicionaritens { get { return "Ver itens"; } }
+
+
+
         public ControladorContato(RepositorioContato repositorioContato)
         {
             this.repositorioContato = repositorioContato;
@@ -191,6 +195,11 @@ namespace E_Agenda.WinApp.ModuloContato
         }
 
         public override void Filtro()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void AdicionarItens()
         {
             throw new NotImplementedException();
         }

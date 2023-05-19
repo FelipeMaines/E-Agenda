@@ -15,22 +15,30 @@ namespace E_Agenda.WinApp.ModuloTarefa
 
         public override string ToolTipFiltrar { get { return "Filtrar itens"; } }
 
+        public override string ToolTipAdicionaritens { get { return "Ver itens"; } }
+
         public ControladorTarefa(RepositorioTarefa repositorioTarefa)
         {
             this.repositorioTarefa = repositorioTarefa;
         }
         public override void Inserir()
         {
-            TelaTarefaForm telaTarefa = new TelaTarefaForm();
+           
+                TelaTarefaForm telaTarefa = new TelaTarefaForm();
 
-            telaTarefa.ShowDialog();
+                telaTarefa.ShowDialog();
 
-            Tarefa tarefa = telaTarefa.Tarefa;
+                Tarefa tarefa = telaTarefa.Tarefa;
 
-            repositorioTarefa.Inserir(tarefa);
+                repositorioTarefa.Inserir(tarefa);
 
-            CarregarTarefas();
+                CarregarTarefas();
+            
+        }
 
+        private void InserirItem(Tarefa tarefaSelecionada)
+        {
+            
         }
 
         public override UserControl ObterListagem()
@@ -113,6 +121,33 @@ namespace E_Agenda.WinApp.ModuloTarefa
         public override void Filtro()
         {
             throw new NotImplementedException();
+        }
+
+        public override void AdicionarItens()
+        {
+            TelaItensForm telaItem = new TelaItensForm();
+
+            Tarefa tarefaSelecionada = listagemTarefa.ObterTarefaSelecionada();
+
+            if (tarefaSelecionada == null)
+            {
+                MessageBox.Show("Uma tarefa deve estar selecionada!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            telaItem.LimparTela();
+
+            foreach (Itens item in tarefaSelecionada.listaItens)
+            {
+                telaItem.AdicionarItem(item);
+            }
+
+            if (telaItem.ShowDialog() == DialogResult.OK)
+            {
+                Itens item = telaItem.item;
+
+                tarefaSelecionada.listaItens.Add(item);
+            }
         }
     }
 }

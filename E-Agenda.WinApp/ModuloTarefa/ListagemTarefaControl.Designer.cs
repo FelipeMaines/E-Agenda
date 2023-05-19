@@ -51,6 +51,11 @@
             ResumeLayout(false);
         }
 
+        private int listTarefas_DoubleClick()
+        {
+            throw new NotImplementedException();
+        }
+
         #endregion
         private ListBox listTarefas;
     }
