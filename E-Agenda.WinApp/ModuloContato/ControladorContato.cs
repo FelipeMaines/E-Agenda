@@ -203,6 +203,11 @@ namespace E_Agenda.WinApp.ModuloContato
         {
             throw new NotImplementedException();
         }
+
+        public override void ConcluirItens()
+        {
+            throw new NotImplementedException();
+        }
     }
     
 }

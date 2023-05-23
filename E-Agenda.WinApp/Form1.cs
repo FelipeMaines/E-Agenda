@@ -84,8 +84,14 @@ namespace E_Agenda.WinApp
 
             controlador.AdicionarItens();
 
-            
-           
+        }
+
+        private void btnConcluirItens_Click(object sender, EventArgs e)
+        {
+            if (!VerificarNullControlador())
+                return;
+
+            controlador.ConcluirItens();
         }
 
         private bool VerificarNullControlador()
@@ -104,6 +110,8 @@ namespace E_Agenda.WinApp
             btnInserir.Text = controlador.ToolTipInserir;
             btnEditar.Text = controlador.ToolTipoEditar;
             btnExcluir.Text = controlador.ToolTipExcluir;
+            btnFiltro.Text = controlador.ToolTipFiltrar;
+            btnAdiconarItem.Text = controlador.ToolTipAdicionaritens;
 
         }
 
@@ -123,6 +131,6 @@ namespace E_Agenda.WinApp
             controlador.Filtro();
         }
 
-
+       
     }
 }

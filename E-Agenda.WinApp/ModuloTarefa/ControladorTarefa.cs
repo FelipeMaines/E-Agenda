@@ -149,5 +149,32 @@ namespace E_Agenda.WinApp.ModuloTarefa
                 tarefaSelecionada.listaItens.Add(item);
             }
         }
+
+        public override void ConcluirItens()
+        {
+            TelaConclusaoItensForm telaConclusao = new TelaConclusaoItensForm(repositorioTarefa);
+
+            Tarefa tarefaSelecionada = listagemTarefa.ObterTarefaSelecionada();
+
+            if (tarefaSelecionada == null)
+            {
+                MessageBox.Show("Uma tarefa deve estar selecionada!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            telaConclusao.LimparTela();
+
+            foreach (Itens item in tarefaSelecionada.listaItens)
+            {
+                telaConclusao.AdicionarItem(item);
+            }
+
+            if (telaConclusao.ShowDialog() == DialogResult.OK)
+            {
+                telaConclusao.ConcluirItem(tarefaSelecionada);
+
+                CarregarTarefas();
+            }
+        }
     }
 }

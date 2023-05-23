@@ -52,6 +52,7 @@
             toolStripSeparator1 = new ToolStripSeparator();
             labelTipoCadastro = new ToolStripLabel();
             panelRegistros = new Panel();
+            btnConcluirItens = new ToolStripButton();
             menuStrip.SuspendLayout();
             statusStrip1.SuspendLayout();
             toolStrip1.SuspendLayout();
@@ -136,7 +137,7 @@
             // 
             // toolStrip1
             // 
-            toolStrip1.Items.AddRange(new ToolStripItem[] { btnInserir, btnEditar, btnExcluir, btnFiltro, btnAdiconarItem, toolStripSeparator1, labelTipoCadastro });
+            toolStrip1.Items.AddRange(new ToolStripItem[] { btnInserir, btnEditar, btnExcluir, btnFiltro, btnAdiconarItem, btnConcluirItens, toolStripSeparator1, labelTipoCadastro });
             toolStrip1.Location = new Point(0, 24);
             toolStrip1.Name = "toolStrip1";
             toolStrip1.Size = new Size(664, 37);
@@ -192,7 +193,7 @@
             // btnAdiconarItem
             // 
             btnAdiconarItem.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            btnAdiconarItem.Image = (Image)resources.GetObject("btnAdiconarItem.Image");
+            btnAdiconarItem.Image = Properties.Resources.note_add_FILL0_wght400_GRAD0_opsz24;
             btnAdiconarItem.ImageTransparentColor = Color.Magenta;
             btnAdiconarItem.Name = "btnAdiconarItem";
             btnAdiconarItem.Padding = new Padding(7);
@@ -219,6 +220,16 @@
             panelRegistros.Name = "panelRegistros";
             panelRegistros.Size = new Size(664, 379);
             panelRegistros.TabIndex = 3;
+            // 
+            // btnConcluirItens
+            // 
+            btnConcluirItens.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            btnConcluirItens.Image = (Image)resources.GetObject("btnConcluirItens.Image");
+            btnConcluirItens.ImageTransparentColor = Color.Magenta;
+            btnConcluirItens.Name = "btnConcluirItens";
+            btnConcluirItens.Size = new Size(23, 34);
+            btnConcluirItens.Text = "toolStripButton1";
+            btnConcluirItens.Click += btnConcluirItens_Click;
             // 
             // Form1
             // 
@@ -267,5 +278,6 @@
         private ToolStripLabel labelTipoCadastro;
         private ToolStripButton btnFiltro;
         private ToolStripButton btnAdiconarItem;
+        private ToolStripButton btnConcluirItens;
     }
 }

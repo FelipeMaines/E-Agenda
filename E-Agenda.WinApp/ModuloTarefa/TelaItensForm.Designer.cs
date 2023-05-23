@@ -37,14 +37,14 @@
             label3 = new Label();
             btnAdicionar = new Button();
             btnCancelar = new Button();
-            lbListaitens = new ListBox();
+            lbListaitens = new CheckedListBox();
             CaixaRadiosStatus.SuspendLayout();
             SuspendLayout();
             // 
             // txtDescricao
             // 
             txtDescricao.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtDescricao.Location = new Point(312, 121);
+            txtDescricao.Location = new Point(408, 121);
             txtDescricao.Name = "txtDescricao";
             txtDescricao.Size = new Size(321, 29);
             txtDescricao.TabIndex = 0;
@@ -63,7 +63,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(141, 121);
+            label2.Location = new Point(237, 121);
             label2.Name = "label2";
             label2.Size = new Size(165, 25);
             label2.TabIndex = 2;
@@ -74,7 +74,7 @@
             CaixaRadiosStatus.Controls.Add(radioButtonPresencial);
             CaixaRadiosStatus.Controls.Add(radioButtonOnline);
             CaixaRadiosStatus.ForeColor = SystemColors.Control;
-            CaixaRadiosStatus.Location = new Point(463, 156);
+            CaixaRadiosStatus.Location = new Point(391, 156);
             CaixaRadiosStatus.Name = "CaixaRadiosStatus";
             CaixaRadiosStatus.Size = new Size(189, 45);
             CaixaRadiosStatus.TabIndex = 40;
@@ -110,7 +110,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.Location = new Point(309, 164);
+            label3.Location = new Point(237, 165);
             label3.Name = "label3";
             label3.Size = new Size(148, 28);
             label3.TabIndex = 41;
@@ -142,13 +142,10 @@
             // lbListaitens
             // 
             lbListaitens.FormattingEnabled = true;
-            lbListaitens.ItemHeight = 15;
-            lbListaitens.Items.AddRange(new object[] { "" });
-            lbListaitens.Location = new Point(309, 212);
+            lbListaitens.Location = new Point(237, 226);
             lbListaitens.Name = "lbListaitens";
-            lbListaitens.SelectionMode = SelectionMode.MultiSimple;
-            lbListaitens.Size = new Size(324, 109);
-            lbListaitens.TabIndex = 44;
+            lbListaitens.Size = new Size(373, 112);
+            lbListaitens.TabIndex = 45;
             // 
             // TelaItensForm
             // 
@@ -183,6 +180,7 @@
         private Button btnAdicionar;
         private Button btnCancelar;
         private Panel panelRegistros;
-        private ListBox lbListaitens;
+        private CheckedListBox lbListaitens;
+        private Button button1;
     }
 }

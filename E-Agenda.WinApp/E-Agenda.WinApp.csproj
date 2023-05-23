@@ -11,6 +11,7 @@
 
   <ItemGroup>
     <Compile Remove="ModuloTarefa\RepositorioItem.cs" />
+    <Compile Remove="Resources\png.cs" />
   </ItemGroup>
 
   <ItemGroup>

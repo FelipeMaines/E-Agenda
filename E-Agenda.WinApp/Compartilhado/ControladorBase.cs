@@ -31,6 +31,8 @@ namespace E_Agenda.WinApp.Compartilhado
         public abstract void Excluir();
 
         public abstract void AdicionarItens();
+
+        public abstract void ConcluirItens();
         
     }
 }

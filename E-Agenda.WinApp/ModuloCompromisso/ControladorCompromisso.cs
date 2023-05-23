@@ -212,5 +212,10 @@ namespace E_Agenda.WinApp.ModuloCompromisso
         {
             throw new NotImplementedException();
         }
+
+        public override void ConcluirItens()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

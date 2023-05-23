@@ -3,7 +3,7 @@ namespace E_Agenda.WinApp.ModuloTarefa
 {
     public class RepositorioTarefa
     {
-        List<Tarefa> tarefas = new List<Tarefa>();
+        public List<Tarefa> tarefas = new List<Tarefa>();
 
         private static int contador;
 
