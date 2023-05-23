@@ -33,6 +33,8 @@ namespace E_Agenda.WinApp
 
             controlador = new ControladorTarefa(repositorioTarefa);
 
+            btnVoltarFiltro.Visible = true;
+
             ConfigurarTelaPrincipal(controlador);
         }
 
@@ -107,13 +109,15 @@ namespace E_Agenda.WinApp
 
         private void ConfirgurarToolTips(ControladorBase controlador)
         {
-            btnInserir.Text = controlador.ToolTipInserir;
-            btnEditar.Text = controlador.ToolTipoEditar;
-            btnExcluir.Text = controlador.ToolTipExcluir;
-            btnFiltro.Text = controlador.ToolTipFiltrar;
-            btnAdiconarItem.Text = controlador.ToolTipAdicionaritens;
+            btnInserir.ToolTipText = controlador.ToolTipInserir;
+            btnEditar.ToolTipText = controlador.ToolTipoEditar;
+            btnExcluir.ToolTipText = controlador.ToolTipExcluir;
+            btnFiltro.ToolTipText = controlador.ToolTipFiltrar;
+            btnAdiconarItem.ToolTipText = controlador.ToolTipAdicionaritens;
 
         }
+
+
 
         private void ConfigurarListagem(ControladorBase controladorBase)
         {
@@ -131,6 +135,6 @@ namespace E_Agenda.WinApp
             controlador.Filtro();
         }
 
-       
+
     }
 }

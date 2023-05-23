@@ -1,4 +1,5 @@
 ﻿using E_Agenda.WinApp.Compartilhado;
+using E_Agenda.WinApp.ModuloCompromisso;
 using System.Text.RegularExpressions;
 
 namespace E_Agenda.WinApp.ModuloContato
@@ -196,7 +197,12 @@ namespace E_Agenda.WinApp.ModuloContato
 
         public override void Filtro()
         {
-            throw new NotImplementedException();
+            TelaFiltro telaFiltro = new TelaFiltro();
+
+            if(telaFiltro.ShowDialog() == DialogResult.OK)
+            {
+
+            }
         }
 
         public override void AdicionarItens()

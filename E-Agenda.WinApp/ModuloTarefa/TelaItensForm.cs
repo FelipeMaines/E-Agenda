@@ -34,8 +34,9 @@ namespace E_Agenda.WinApp.ModuloTarefa
             }
         }
 
-        internal void AdicionarItem(Itens item)
+        public void AdicionarItem(Itens item)
         {
+            if(item.estado == false)
             lbListaitens.Items.Add(item.descricao);
         }
 

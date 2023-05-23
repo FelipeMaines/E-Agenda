@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             menuStrip = new MenuStrip();
             cadastrosToolStripMenuItem = new ToolStripMenuItem();
             contatosMenuItem = new ToolStripMenuItem();
@@ -49,13 +48,15 @@
             btnExcluir = new ToolStripButton();
             btnFiltro = new ToolStripButton();
             btnAdiconarItem = new ToolStripButton();
+            btnConcluirItens = new ToolStripButton();
             toolStripSeparator1 = new ToolStripSeparator();
             labelTipoCadastro = new ToolStripLabel();
             panelRegistros = new Panel();
-            btnConcluirItens = new ToolStripButton();
+            btnVoltarFiltro = new Button();
             menuStrip.SuspendLayout();
             statusStrip1.SuspendLayout();
             toolStrip1.SuspendLayout();
+            panelRegistros.SuspendLayout();
             SuspendLayout();
             // 
             // menuStrip
@@ -187,7 +188,7 @@
             btnFiltro.Name = "btnFiltro";
             btnFiltro.Size = new Size(23, 23);
             btnFiltro.Text = "toolStripButton1";
-            btnFiltro.ToolTipText = "Filtrar";
+            btnFiltro.ToolTipText = "toolStripButton4";
             btnFiltro.Click += toolStripbtnFiltro_Click;
             // 
             // btnAdiconarItem
@@ -199,7 +200,21 @@
             btnAdiconarItem.Padding = new Padding(7);
             btnAdiconarItem.Size = new Size(34, 34);
             btnAdiconarItem.Text = "toolStripButton1";
+            btnAdiconarItem.ToolTipText = "toolStripButton5";
             btnAdiconarItem.Click += btnAdicionaItens_Click_1;
+            // 
+            // btnConcluirItens
+            // 
+            btnConcluirItens.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            btnConcluirItens.Image = Properties.Resources.check_FILL0_wght400_GRAD0_opsz24;
+            btnConcluirItens.ImageTransparentColor = Color.Magenta;
+            btnConcluirItens.Margin = new Padding(0);
+            btnConcluirItens.Name = "btnConcluirItens";
+            btnConcluirItens.Padding = new Padding(7);
+            btnConcluirItens.Size = new Size(34, 37);
+            btnConcluirItens.Text = "toolStripButton1";
+            btnConcluirItens.ToolTipText = "toolStripButton6";
+            btnConcluirItens.Click += btnConcluirItens_Click;
             // 
             // toolStripSeparator1
             // 
@@ -215,21 +230,22 @@
             // panelRegistros
             // 
             panelRegistros.BorderStyle = BorderStyle.FixedSingle;
+            panelRegistros.Controls.Add(btnVoltarFiltro);
             panelRegistros.Dock = DockStyle.Fill;
             panelRegistros.Location = new Point(0, 61);
             panelRegistros.Name = "panelRegistros";
             panelRegistros.Size = new Size(664, 379);
             panelRegistros.TabIndex = 3;
             // 
-            // btnConcluirItens
+            // btnVoltarFiltro
             // 
-            btnConcluirItens.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            btnConcluirItens.Image = (Image)resources.GetObject("btnConcluirItens.Image");
-            btnConcluirItens.ImageTransparentColor = Color.Magenta;
-            btnConcluirItens.Name = "btnConcluirItens";
-            btnConcluirItens.Size = new Size(23, 34);
-            btnConcluirItens.Text = "toolStripButton1";
-            btnConcluirItens.Click += btnConcluirItens_Click;
+            btnVoltarFiltro.Location = new Point(559, 342);
+            btnVoltarFiltro.Name = "btnVoltarFiltro";
+            btnVoltarFiltro.Size = new Size(92, 23);
+            btnVoltarFiltro.TabIndex = 0;
+            btnVoltarFiltro.Text = "Voltar do Filtro";
+            btnVoltarFiltro.UseVisualStyleBackColor = true;
+            btnVoltarFiltro.Visible = false;
             // 
             // Form1
             // 
@@ -250,6 +266,7 @@
             statusStrip1.PerformLayout();
             toolStrip1.ResumeLayout(false);
             toolStrip1.PerformLayout();
+            panelRegistros.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -279,5 +296,6 @@
         private ToolStripButton btnFiltro;
         private ToolStripButton btnAdiconarItem;
         private ToolStripButton btnConcluirItens;
+        private Button btnVoltarFiltro;
     }
 }

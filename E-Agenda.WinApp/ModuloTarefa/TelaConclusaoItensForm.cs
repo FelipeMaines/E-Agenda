@@ -59,14 +59,15 @@ namespace E_Agenda.WinApp.ModuloTarefa
                     if (item.descricao == descricaoItem)
                     {
                         tarefaSelecionada.listaItensProntos.Add(item);
-                        itensARemover.Add(item);
+                        item.estado = true;
+                        item.concluida = "Concluida";
+                    }
+                    else
+                    {
+                        item.concluida = "Em andamento!";
+                        item.estado = false;
                     }
                 }
-            }
-
-            foreach (Itens itemRemover in itensARemover)
-            {
-                tarefaSelecionada.listaItens.Remove(itemRemover);
             }
         }
     }

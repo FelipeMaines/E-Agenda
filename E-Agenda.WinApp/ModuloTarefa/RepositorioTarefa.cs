@@ -37,5 +37,50 @@ namespace E_Agenda.WinApp.ModuloTarefa
         {
             tarefas.Remove(tarefa);
         }
+
+        public List<Itens> SelecionarItensEmAberto(Tarefa tarefaSelecionada)
+        {
+            List<Itens> itens = new List<Itens>();
+
+            foreach(Tarefa ta in tarefas) 
+            {
+                foreach (Itens item in ta.listaItens)
+                {
+                    if (item.estado == false)
+                        itens.Add(item);
+                }
+            }
+
+            return itens;
+        }
+
+        public List<Itens> SelecionarItensFinalizadas(Tarefa tarefaSelecionada)
+        {
+            List<Itens> itens = new List<Itens>();
+
+            foreach (Tarefa ta in tarefas)
+            {
+                foreach (Itens item in ta.listaItens)
+                {
+                    if (item.estado == true)
+                        itens.Add(item);
+                }
+            }
+
+            return itens;
+        }
+
+        public List<Itens> SelecionarTodosItens(Tarefa tarefaSelecionada)
+        {
+            List<Itens> itens = new List<Itens>();
+
+            foreach (Tarefa ta in tarefas)
+            {
+                foreach (Itens item in ta.listaItens)
+                    itens.Add(item);
+            }
+
+            return itens;
+        }
     }
 }

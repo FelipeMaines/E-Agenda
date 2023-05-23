@@ -1,4 +1,5 @@
 ﻿using E_Agenda.WinApp.Compartilhado;
+using E_Agenda.WinApp.ModuloCompromisso;
 using E_Agenda.WinApp.ModuloContato;
 
 namespace E_Agenda.WinApp.ModuloTarefa
@@ -15,7 +16,7 @@ namespace E_Agenda.WinApp.ModuloTarefa
 
         public override string ToolTipFiltrar { get { return "Filtrar itens"; } }
 
-        public override string ToolTipAdicionaritens { get { return "Ver itens"; } }
+        public override string ToolTipAdicionaritens { get { return "Adicionar itens"; } }
 
         public ControladorTarefa(RepositorioTarefa repositorioTarefa)
         {
@@ -24,16 +25,16 @@ namespace E_Agenda.WinApp.ModuloTarefa
         public override void Inserir()
         {
            
-                TelaTarefaForm telaTarefa = new TelaTarefaForm();
+          TelaTarefaForm telaTarefa = new TelaTarefaForm();
 
-                telaTarefa.ShowDialog();
-
+            if(telaTarefa.ShowDialog() == DialogResult.OK)
+            {
                 Tarefa tarefa = telaTarefa.Tarefa;
 
                 repositorioTarefa.Inserir(tarefa);
+            }
 
-                CarregarTarefas();
-            
+            CarregarTarefas();
         }
 
         private void InserirItem(Tarefa tarefaSelecionada)
@@ -120,7 +121,48 @@ namespace E_Agenda.WinApp.ModuloTarefa
 
         public override void Filtro()
         {
-            throw new NotImplementedException();
+            TelaFiltroForm telaFiltroForm = new TelaFiltroForm();
+            
+
+            if(telaFiltroForm.ShowDialog() == DialogResult.OK)
+            {
+                TelaFiltroForm.statusCompromissoEnumTarefa opcao = telaFiltroForm.StatusSelecionado;
+
+                CarregarCompromissoComFiltro(opcao);
+            }
+        }
+
+        private void CarregarCompromissoComFiltro(TelaFiltroForm.statusCompromissoEnumTarefa statusSelecionado)
+        {
+            Tarefa tarefaSelecionada = listagemTarefa.ObterTarefaSelecionada();
+            List<Itens> item = new List<Itens>();
+
+            switch (statusSelecionado)
+            {
+                case TelaFiltroForm.statusCompromissoEnumTarefa.aberto:
+
+                    item = repositorioTarefa.SelecionarItensEmAberto(tarefaSelecionada);
+                    break;
+
+                case TelaFiltroForm.statusCompromissoEnumTarefa.finalizado:
+
+                    item = repositorioTarefa.SelecionarItensFinalizadas(tarefaSelecionada);
+                    break;
+
+                case TelaFiltroForm.statusCompromissoEnumTarefa.todos:
+
+                    item = repositorioTarefa.SelecionarTodosItens(tarefaSelecionada);
+                    break;
+            }
+
+            CarregarTarefas(item);
+            
+        }
+
+        private void CarregarTarefas(List<Itens> item)
+        {
+
+            listagemTarefa.AtualizarRegistros(item);
         }
 
         public override void AdicionarItens()
