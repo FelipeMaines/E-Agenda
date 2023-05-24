@@ -1,14 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace E_Agenda.WinApp.ModuloTarefa
+﻿namespace E_Agenda.WinApp.ModuloTarefa
 {
     public partial class TelaFiltroForm : Form
     {
@@ -26,7 +16,8 @@ namespace E_Agenda.WinApp.ModuloTarefa
         {
             todos,
             aberto,
-            finalizado
+            finalizado,
+            tareafas
         }
 
         public statusCompromissoEnumTarefa StatusSelecionado
@@ -39,11 +30,14 @@ namespace E_Agenda.WinApp.ModuloTarefa
                 else if (radioConcluido.Checked)
                     return statusCompromissoEnumTarefa.finalizado;
 
-                else
+                else if (radioTodos.Checked)
                     return statusCompromissoEnumTarefa.todos;
+
+                else
+                    return statusCompromissoEnumTarefa.tareafas;
             }
         }
 
-       
+
     }
 }

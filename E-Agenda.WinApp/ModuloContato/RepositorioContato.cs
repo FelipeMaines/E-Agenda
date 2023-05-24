@@ -1,5 +1,4 @@
-﻿
-namespace E_Agenda.WinApp.ModuloContato
+﻿namespace E_Agenda.WinApp.ModuloContato
 {
     public class RepositorioContato
     {

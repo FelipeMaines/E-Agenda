@@ -1,11 +1,7 @@
-﻿using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
-
-namespace E_Agenda.WinApp.ModuloContato
+﻿namespace E_Agenda.WinApp.ModuloContato
 {
-    public class Contato
+    public class Contato : Entidade
     {
-        public int id;
         public string nome;
         public string email;
         public string empresa;
@@ -25,7 +21,46 @@ namespace E_Agenda.WinApp.ModuloContato
             return "id: " + id + "\t nome: " + nome + "\t empresa: " + empresa + "\t cargo: " + cargo + "\t telefone: " + telefone + "\t email: " + email;
         }
 
+        public override string[] Validar()
+        {
+            List<string> erros = new List<string>();
 
+            if (string.IsNullOrEmpty(nome) || nome.Length < 3)
+                erros.Add("Campo nome esta errado!");
+
+            else if (string.IsNullOrEmpty(email))
+                erros.Add("Campo email esta errado!");
+
+            else if (string.IsNullOrEmpty(telefone))
+                erros.Add("Campo telefone esta errado!");
+
+            else if (string.IsNullOrEmpty(empresa))
+                erros.Add("Campo empresa esta errado!");
+
+            else if (!IsValidEmail(email))
+                erros.Add("O campo de email esta invalido!");
+
+            else if (!isValidNumber(telefone))
+                erros.Add("O campo telefone esta incorreto!");
+
+            return erros.ToArray();
+        }
+
+        public bool IsValidEmail(string email)
+        {
+            string pattern = @"^[\w\.-]+@[\w\.-]+\.\w+$";
+
+            Match match = Regex.Match(email, pattern, RegexOptions.IgnoreCase);
+
+            return match.Success;
+        }
+
+        private bool isValidNumber(string numero)
+        {
+            if (numero.Length != 11)
+                return false;
+
+            return true;
+        }
     }
-
 }

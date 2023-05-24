@@ -1,8 +1,4 @@
-﻿using E_Agenda.WinApp.Compartilhado;
-using E_Agenda.WinApp.ModuloCompromisso;
-using E_Agenda.WinApp.ModuloContato;
-
-namespace E_Agenda.WinApp.ModuloTarefa
+﻿namespace E_Agenda.WinApp.ModuloTarefa
 {
     public class ControladorTarefa : ControladorBase
     {
@@ -36,12 +32,7 @@ namespace E_Agenda.WinApp.ModuloTarefa
 
             CarregarTarefas();
         }
-
-        private void InserirItem(Tarefa tarefaSelecionada)
-        {
-            
-        }
-
+        
         public override UserControl ObterListagem()
         {
             if (listagemTarefa == null)
@@ -136,6 +127,7 @@ namespace E_Agenda.WinApp.ModuloTarefa
         {
             Tarefa tarefaSelecionada = listagemTarefa.ObterTarefaSelecionada();
             List<Itens> item = new List<Itens>();
+            bool precisa = true;
 
             switch (statusSelecionado)
             {
@@ -153,10 +145,15 @@ namespace E_Agenda.WinApp.ModuloTarefa
 
                     item = repositorioTarefa.SelecionarTodosItens(tarefaSelecionada);
                     break;
-            }
 
+                case TelaFiltroForm.statusCompromissoEnumTarefa.tareafas:
+                    precisa = false;
+                    CarregarTarefas();
+                    break;
+            }
+            if(precisa)
             CarregarTarefas(item);
-            
+
         }
 
         private void CarregarTarefas(List<Itens> item)
@@ -206,6 +203,12 @@ namespace E_Agenda.WinApp.ModuloTarefa
 
             telaConclusao.LimparTela();
 
+            if (verificarConclusao(tarefaSelecionada))
+            {
+                tarefaSelecionada.dataFinalizda = DateTime.Now;
+                tarefaSelecionada.estaFinalizada = true;
+            }
+
             foreach (Itens item in tarefaSelecionada.listaItens)
             {
                 telaConclusao.AdicionarItem(item);
@@ -217,6 +220,28 @@ namespace E_Agenda.WinApp.ModuloTarefa
 
                 CarregarTarefas();
             }
+
+            
+        }
+
+        public bool verificarConclusao(Tarefa tarefaSelecionada)
+        {
+            int contadorDeItens = tarefaSelecionada.listaItens.Count;
+            int contadorDeConclusao = 0;
+
+            contadorDeConclusao = tarefaSelecionada.listaItens.Count(item => item.estado == true);
+
+            if (contadorDeItens == 0)
+                return false; 
+
+            tarefaSelecionada.conclusao = (contadorDeConclusao / contadorDeItens) * 100;
+
+            if (contadorDeConclusao == contadorDeItens)
+            {
+                return true;
+            }
+
+            return false;
         }
     }
 }

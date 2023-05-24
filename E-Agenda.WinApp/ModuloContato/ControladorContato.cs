@@ -1,8 +1,4 @@
-﻿using E_Agenda.WinApp.Compartilhado;
-using E_Agenda.WinApp.ModuloCompromisso;
-using System.Text.RegularExpressions;
-
-namespace E_Agenda.WinApp.ModuloContato
+﻿namespace E_Agenda.WinApp.ModuloContato
 {
     public class ControladorContato : ControladorBase
     {
@@ -36,19 +32,12 @@ namespace E_Agenda.WinApp.ModuloContato
             if(opcaoEscolhida == DialogResult.OK)
             {
                 Contato contato = telaContato.Contato;
-
-                if (Verificar(ref telaContato, ref opcaoEscolhida, ref contato))
-                {
-                    repositorioContato.Inserir(contato);
-                    CarregarContatos();
-                }
+                repositorioContato.Inserir(contato);
+                CarregarContatos();
             }
 
             else
-            {
-                MessageBox.Show("Cancelado!");
                 return;
-            }
         }
 
         private void RechamarVerificacao(ref TelaContatoForm telaContato, ref DialogResult opcaoEscolhida, ref Contato contato)
@@ -60,57 +49,14 @@ namespace E_Agenda.WinApp.ModuloContato
             if (opcaoEscolhida == DialogResult.OK)
             {
                 contato = telaContato.Contato;
+               
+                repositorioContato.Inserir(contato);
 
-                if(Verificar(ref telaContato, ref opcaoEscolhida, ref contato))
-                {
-                    repositorioContato.Inserir(contato);
-
-                    CarregarContatos();
-                }
-
+                CarregarContatos();
             }
 
             else
                 return;
-        }
-
-                
-
-        public bool IsValidEmail(string email)
-        {
-            string pattern = @"^[\w\.-]+@[\w\.-]+\.\w+$";
-
-            Match match = Regex.Match(email, pattern, RegexOptions.IgnoreCase);
-
-            return match.Success;
-        }
-
-        private bool isValidNumber(string numero)
-        {
-            if (numero.Length != 11)
-                return false;
-
-            return true;
-        }
-
-        private bool Verificar(ref TelaContatoForm telaContato, ref DialogResult opcaoEscolhida, ref Contato contato)
-        {
-
-            if(!IsValidEmail(contato.email))
-            {
-                MessageBox.Show("Email Invalido");
-                RechamarVerificacao(ref telaContato, ref opcaoEscolhida, ref contato);
-                return false;
-            }
-
-            if(!isValidNumber(contato.telefone))
-            {
-                MessageBox.Show("Numero de telefone deve ter 11 digitos");
-                RechamarVerificacao(ref telaContato, ref opcaoEscolhida, ref contato);
-                return false;
-            }
-
-            return true;
         }
 
         public override string ObterTipoCadastro()
@@ -215,5 +161,4 @@ namespace E_Agenda.WinApp.ModuloContato
             throw new NotImplementedException();
         }
     }
-    
 }

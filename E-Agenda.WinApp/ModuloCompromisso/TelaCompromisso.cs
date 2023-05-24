@@ -1,15 +1,4 @@
-﻿using E_Agenda.WinApp.ModuloContato;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace E_Agenda.WinApp.ModuloCompromisso
+﻿namespace E_Agenda.WinApp.ModuloCompromisso
 {
     public partial class TelaCompromisso : Form
     {
@@ -46,6 +35,15 @@ namespace E_Agenda.WinApp.ModuloCompromisso
             string online = caixaRadios.Controls.OfType<RadioButton>().SingleOrDefault(RadioButton => RadioButton.Checked).Text;
 
             compromisso = new Compromisso(assunto, local, data, horaInicio, horaFinal, online);
+
+            string[] erros = compromisso.Validar();
+
+            if(erros.Length > 0)
+            {
+                Form1.Instancia.AtualizarRodape(erros[0]);
+
+                DialogResult = DialogResult.None;
+            }
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)

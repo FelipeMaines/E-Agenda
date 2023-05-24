@@ -20,8 +20,6 @@ namespace E_Agenda.WinApp.ModuloTarefa
             InitializeComponent();
         }
 
-
-
         public Itens itens
         {
             set
@@ -30,14 +28,14 @@ namespace E_Agenda.WinApp.ModuloTarefa
             }
             get
             {
-                return itens;
+                return item;
             }
         }
 
         public void AdicionarItem(Itens item)
         {
-            if(item.estado == false)
-            lbListaitens.Items.Add(item.descricao);
+            if (item.estado == false)
+                lbListaitens.Items.Add(item.descricao);
         }
 
         internal void LimparTela()
@@ -48,9 +46,21 @@ namespace E_Agenda.WinApp.ModuloTarefa
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
             string descricao = txtDescricao.Text;
-            string concluida = CaixaRadiosStatus.Controls.OfType<RadioButton>().SingleOrDefault(RadioButton => RadioButton.Checked).Text;
+            string concluida = "";
+          concluida = CaixaRadiosStatus.Controls.OfType<RadioButton>().SingleOrDefault(RadioButton => RadioButton.Checked).Tag.ToString();
+
+           
 
             item = new Itens(descricao, concluida);
+
+            string[] erros = itens.Validar();
+
+            if (erros.Length > 0)
+            {
+                Form1.Instancia.AtualizarRodape(erros[0]);
+
+                DialogResult = DialogResult.None;
+            }
 
         }
 

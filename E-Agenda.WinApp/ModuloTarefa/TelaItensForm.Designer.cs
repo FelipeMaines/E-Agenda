@@ -90,6 +90,7 @@
             radioButtonPresencial.Size = new Size(61, 29);
             radioButtonPresencial.TabIndex = 37;
             radioButtonPresencial.TabStop = true;
+            radioButtonPresencial.Tag = "Concluida";
             radioButtonPresencial.Text = "Sim";
             radioButtonPresencial.UseVisualStyleBackColor = true;
             // 
@@ -103,6 +104,7 @@
             radioButtonOnline.Size = new Size(65, 29);
             radioButtonOnline.TabIndex = 38;
             radioButtonOnline.TabStop = true;
+            radioButtonOnline.Tag = "Em Aberto";
             radioButtonOnline.Text = "Nao";
             radioButtonOnline.UseVisualStyleBackColor = true;
             // 

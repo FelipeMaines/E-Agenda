@@ -1,15 +1,4 @@
-﻿using E_Agenda.WinApp.ModuloContato;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace E_Agenda.WinApp.ModuloTarefa
+﻿namespace E_Agenda.WinApp.ModuloTarefa
 {
     public partial class TelaTarefaForm : Form
     {
@@ -17,6 +6,7 @@ namespace E_Agenda.WinApp.ModuloTarefa
         public TelaTarefaForm()
         {
             InitializeComponent();
+            CarregarTarefas();
         }
 
         public Tarefa Tarefa
@@ -25,7 +15,6 @@ namespace E_Agenda.WinApp.ModuloTarefa
             {
                 tbIdTarefa.Text = value.id.ToString();
                 tbNomeTarefa.Text = value.nome;
-                tbPrioridadeTarefa.Text = value.prioridade;
             }
             get
             {
@@ -37,15 +26,42 @@ namespace E_Agenda.WinApp.ModuloTarefa
 
         }
 
+        public enum PrioridadeTarefaEnum
+        {
+            Baixa, Normal, Alta
+        }
+
+        private void CarregarTarefas()
+        {
+            PrioridadeTarefaEnum[] prioridades = Enum.GetValues<PrioridadeTarefaEnum>();
+
+            foreach (PrioridadeTarefaEnum prioridade in prioridades)
+            {
+                cbPrioridade.Items.Add(prioridade);
+            }
+        }
+
         private void btnEnviarTarefa_Click(object sender, EventArgs e)
         {
             string nome = tbNomeTarefa.Text;
-            string prioridade = tbPrioridadeTarefa.Text;
+
+            //string prioridade = tbPrioridadeTarefa.Text;
             string id = tbIdTarefa.Text;
 
+            PrioridadeTarefaEnum prioridade = (PrioridadeTarefaEnum)cbPrioridade.SelectedItem;
+
             tarefa = new Tarefa(nome, prioridade);
+
+            string[] erros = tarefa.Validar();
+
+            if (erros.Length > 0)
+            {
+                Form1.Instancia.AtualizarRodape(erros[0]);
+
+                DialogResult = DialogResult.None;
+            }
         }
 
-        
+
     }
 }

@@ -19,8 +19,8 @@ namespace E_Agenda.WinApp.ModuloTarefa
         {
             InitializeComponent();
 
-            tarefas.Add(new Tarefa("Fazer Pizza", "9999"));
-            tarefas.Add(new Tarefa("e-Agenda", "1"));
+            tarefas.Add(new Tarefa("Fazer Pizza", TelaTarefaForm.PrioridadeTarefaEnum.Baixa));
+            tarefas.Add(new Tarefa("e-Agenda", TelaTarefaForm.PrioridadeTarefaEnum.Alta));
         }
 
         public void AtualizarRegistros(List<Tarefa> tarefas)
@@ -45,7 +45,16 @@ namespace E_Agenda.WinApp.ModuloTarefa
 
         internal Tarefa ObterTarefaSelecionada()
         {
+            try
+            {
             return (Tarefa)listTarefas.SelectedItem;
+
+            }catch(Exception ex)
+            {
+
+            }
+
+            return null;
         }
     }
 

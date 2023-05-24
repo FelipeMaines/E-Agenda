@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace E_Agenda.WinApp.ModuloTarefa
+﻿namespace E_Agenda.WinApp.ModuloTarefa
 {
-    public class Itens
+    public class Itens : Entidade
     {
         public string descricao;
         public string concluida;
@@ -23,5 +17,19 @@ namespace E_Agenda.WinApp.ModuloTarefa
         {
             return "Descricao: " + descricao + "\tEstado: " + concluida;
         }
+
+        public override string[] Validar()
+        {
+            List<string> erros = new List<string>();
+
+            if (string.IsNullOrEmpty(descricao) || descricao.Length < 5)
+                erros.Add("Campo descricao esta errado!");
+
+            else if (string.IsNullOrEmpty(concluida))
+                erros.Add("Campo concluida esta errado!");
+
+            return erros.ToArray();
+        }
     }
 }
+

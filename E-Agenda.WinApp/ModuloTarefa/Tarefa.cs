@@ -1,16 +1,21 @@
-﻿namespace E_Agenda.WinApp.ModuloTarefa
+﻿using static E_Agenda.WinApp.ModuloTarefa.TelaTarefaForm;
+
+namespace E_Agenda.WinApp.ModuloTarefa
 {
-    public class Tarefa
+    public class Tarefa : Entidade
     {
-        public int id { get; set; }
         public string nome { get; set; }
-        public string prioridade { get; set; }
+        public PrioridadeTarefaEnum prioridade { get; set; }
+
         public List<Itens> listaItens;
-
         public List<Itens> listaItensProntos;
-        public DateTime dataAbertura { get; set; }
+        public decimal conclusao;
 
-        public Tarefa(string nome, string prioridade)
+        public DateTime dataAbertura { get; set; }
+        public DateTime dataFinalizda { get; set; }
+        public bool estaFinalizada { get; set; }
+
+        public Tarefa(string nome, PrioridadeTarefaEnum prioridade)
         {
             this.nome = nome;
             this.prioridade = prioridade; // a
@@ -21,8 +26,31 @@
 
         public override string ToString()
         {
-            return "id: " + id + "\t nome: " + nome + "\t Prioridade: " + prioridade + "\t Data de Abertura: " + dataAbertura;
+            string strDataFinalizada = "Nao concluida";
+
+            if (estaFinalizada == true)
+            {
+                strDataFinalizada = dataFinalizda.ToString();
+            }
+
+            return "id: " + id + "\t nome: " + nome + "\t Prioridade: " + prioridade.ToString() + "\t Data de Abertura: " + dataAbertura + "\tData de Finalizacao: " + strDataFinalizada;
         }
+
+        public override string[] Validar()
+        {
+            List<string> erros = new List<string>();
+
+            if (string.IsNullOrEmpty(nome) || nome.Length < 3)
+                erros.Add("Campo nome esta errado!");
+
+            else if (string.IsNullOrEmpty(prioridade.ToString()))
+                erros.Add("Campo prioridade esta errado!");
+
+            return erros.ToArray();
+        }
+
+        
+
     }
 
 }

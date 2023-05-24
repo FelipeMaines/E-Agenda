@@ -1,15 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Text.RegularExpressions;
-
-namespace E_Agenda.WinApp.ModuloContato
+﻿namespace E_Agenda.WinApp.ModuloContato
 {
     public partial class TelaContatoForm : Form
     {
@@ -50,7 +39,14 @@ namespace E_Agenda.WinApp.ModuloContato
 
             contato = new Contato(nome, email, telefone, empresa, cargo);
 
+            string[] erros = contato.Validar();
 
+            if (erros.Length > 0)
+            {
+                Form1.Instancia.AtualizarRodape(erros[0]);
+
+                DialogResult = DialogResult.None;
+            }
         }
 
        

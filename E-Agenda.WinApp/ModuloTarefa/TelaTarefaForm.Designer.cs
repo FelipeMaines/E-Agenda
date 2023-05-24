@@ -32,11 +32,11 @@
             tbNomeTarefa = new TextBox();
             tbIdTarefa = new TextBox();
             id = new Label();
-            tbPrioridadeTarefa = new TextBox();
             label2 = new Label();
             label1 = new Label();
             btnEnviarTarefa = new Button();
             btnCancelarTarefa = new Button();
+            cbPrioridade = new ComboBox();
             SuspendLayout();
             // 
             // txtNome
@@ -75,14 +75,6 @@
             id.TabIndex = 3;
             id.Text = "Id";
             id.Click += id_Click;
-            // 
-            // tbPrioridadeTarefa
-            // 
-            tbPrioridadeTarefa.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point);
-            tbPrioridadeTarefa.Location = new Point(345, 188);
-            tbPrioridadeTarefa.Name = "tbPrioridadeTarefa";
-            tbPrioridadeTarefa.Size = new Size(166, 32);
-            tbPrioridadeTarefa.TabIndex = 6;
             // 
             // label2
             // 
@@ -127,15 +119,24 @@
             btnCancelarTarefa.Text = "Cancelar";
             btnCancelarTarefa.UseVisualStyleBackColor = true;
             // 
+            // cbPrioridade
+            // 
+            cbPrioridade.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            cbPrioridade.FormattingEnabled = true;
+            cbPrioridade.Location = new Point(345, 194);
+            cbPrioridade.Name = "cbPrioridade";
+            cbPrioridade.Size = new Size(162, 29);
+            cbPrioridade.TabIndex = 10;
+            // 
             // TelaTarefaForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(cbPrioridade);
             Controls.Add(btnCancelarTarefa);
             Controls.Add(btnEnviarTarefa);
             Controls.Add(label1);
-            Controls.Add(tbPrioridadeTarefa);
             Controls.Add(label2);
             Controls.Add(tbIdTarefa);
             Controls.Add(id);
@@ -158,5 +159,6 @@
         private Label label1;
         private Button btnEnviarTarefa;
         private Button btnCancelarTarefa;
+        private ComboBox cbPrioridade;
     }
 }

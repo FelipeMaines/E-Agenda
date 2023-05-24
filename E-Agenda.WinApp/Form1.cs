@@ -7,15 +7,20 @@ namespace E_Agenda.WinApp
 {
     public partial class Form1 : Form
     {
-        public Form1()
-        {
-            InitializeComponent();
-        }
-
         private RepositorioContato repositorioContato = new RepositorioContato();
         private RepositorioTarefa repositorioTarefa = new RepositorioTarefa();
         private RepositorioCompromisso repositorioCompromisso = new RepositorioCompromisso();
         private ControladorBase controlador;
+        private static Form1 telaPrincipal;
+
+        public Form1()
+        {
+            InitializeComponent();
+            telaPrincipal = this;
+        }
+
+
+
 
         private void contatosMenuItem_Click(object sender, EventArgs e)
         {
@@ -27,13 +32,22 @@ namespace E_Agenda.WinApp
 
         }
 
+        public static Form1 Instancia
+        {
+            get
+            {
+                if (telaPrincipal == null)
+                    telaPrincipal = new Form1();
+
+                return telaPrincipal;
+            }
+        }
+
         private void tarefasMenuItem_Click(object sender, EventArgs e)
         {
             labelTipoCadastro.Text = "cadastro De Tarefas";
 
             controlador = new ControladorTarefa(repositorioTarefa);
-
-            btnVoltarFiltro.Visible = true;
 
             ConfigurarTelaPrincipal(controlador);
         }
@@ -135,6 +149,9 @@ namespace E_Agenda.WinApp
             controlador.Filtro();
         }
 
-
+        public void AtualizarRodape(string erros)
+        {
+            rodaPe.Text = erros;
+        }
     }
 }

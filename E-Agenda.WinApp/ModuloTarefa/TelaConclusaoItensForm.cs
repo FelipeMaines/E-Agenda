@@ -1,14 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace E_Agenda.WinApp.ModuloTarefa
+﻿namespace E_Agenda.WinApp.ModuloTarefa
 {
     public partial class TelaConclusaoItensForm : Form
     {
@@ -54,7 +44,7 @@ namespace E_Agenda.WinApp.ModuloTarefa
 
             foreach (string descricaoItem in lbListaitens.CheckedItems)
             {
-                foreach (Itens item in tarefaSelecionada.listaItens)
+                foreach (Itens item in tarefaSelecionada.listaItens.FindAll(i => i.descricao == descricaoItem))
                 {
                     if (item.descricao == descricaoItem)
                     {
@@ -69,6 +59,8 @@ namespace E_Agenda.WinApp.ModuloTarefa
                     }
                 }
             }
+
+
         }
     }
 }

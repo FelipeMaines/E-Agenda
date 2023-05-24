@@ -1,13 +1,4 @@
-﻿using E_Agenda.WinApp.Compartilhado;
-using E_Agenda.WinApp.ModuloContato;
-using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace E_Agenda.WinApp.ModuloCompromisso
+﻿namespace E_Agenda.WinApp.ModuloCompromisso
 {
     public class ControladorCompromisso : ControladorBase
     {
@@ -217,5 +208,7 @@ namespace E_Agenda.WinApp.ModuloCompromisso
         {
             throw new NotImplementedException();
         }
+
+        
     }
 }

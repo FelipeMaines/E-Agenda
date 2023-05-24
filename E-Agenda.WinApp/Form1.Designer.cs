@@ -39,7 +39,7 @@
             categoriasToolStripMenuItem = new ToolStripMenuItem();
             relatoriosToolStripMenuItem = new ToolStripMenuItem();
             statusStrip1 = new StatusStrip();
-            toolStripStatusLabel1 = new ToolStripStatusLabel();
+            rodaPe = new ToolStripStatusLabel();
             toolTip1 = new ToolTip(components);
             toolTip2 = new ToolTip(components);
             toolStrip1 = new ToolStrip();
@@ -52,11 +52,9 @@
             toolStripSeparator1 = new ToolStripSeparator();
             labelTipoCadastro = new ToolStripLabel();
             panelRegistros = new Panel();
-            btnVoltarFiltro = new Button();
             menuStrip.SuspendLayout();
             statusStrip1.SuspendLayout();
             toolStrip1.SuspendLayout();
-            panelRegistros.SuspendLayout();
             SuspendLayout();
             // 
             // menuStrip
@@ -123,18 +121,18 @@
             // 
             // statusStrip1
             // 
-            statusStrip1.Items.AddRange(new ToolStripItem[] { toolStripStatusLabel1 });
+            statusStrip1.Items.AddRange(new ToolStripItem[] { rodaPe });
             statusStrip1.Location = new Point(0, 440);
             statusStrip1.Name = "statusStrip1";
             statusStrip1.Size = new Size(664, 22);
             statusStrip1.TabIndex = 1;
             statusStrip1.Text = "statusStrip1";
             // 
-            // toolStripStatusLabel1
+            // rodaPe
             // 
-            toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            toolStripStatusLabel1.Size = new Size(118, 17);
-            toolStripStatusLabel1.Text = "toolStripStatusLabel1";
+            rodaPe.Name = "rodaPe";
+            rodaPe.Size = new Size(118, 17);
+            rodaPe.Text = "toolStripStatusLabel1";
             // 
             // toolStrip1
             // 
@@ -230,22 +228,11 @@
             // panelRegistros
             // 
             panelRegistros.BorderStyle = BorderStyle.FixedSingle;
-            panelRegistros.Controls.Add(btnVoltarFiltro);
             panelRegistros.Dock = DockStyle.Fill;
             panelRegistros.Location = new Point(0, 61);
             panelRegistros.Name = "panelRegistros";
             panelRegistros.Size = new Size(664, 379);
             panelRegistros.TabIndex = 3;
-            // 
-            // btnVoltarFiltro
-            // 
-            btnVoltarFiltro.Location = new Point(559, 342);
-            btnVoltarFiltro.Name = "btnVoltarFiltro";
-            btnVoltarFiltro.Size = new Size(92, 23);
-            btnVoltarFiltro.TabIndex = 0;
-            btnVoltarFiltro.Text = "Voltar do Filtro";
-            btnVoltarFiltro.UseVisualStyleBackColor = true;
-            btnVoltarFiltro.Visible = false;
             // 
             // Form1
             // 
@@ -266,7 +253,6 @@
             statusStrip1.PerformLayout();
             toolStrip1.ResumeLayout(false);
             toolStrip1.PerformLayout();
-            panelRegistros.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -283,7 +269,7 @@
         private ToolStripMenuItem categoriasToolStripMenuItem;
         private ToolStripMenuItem relatoriosToolStripMenuItem;
         private StatusStrip statusStrip1;
-        private ToolStripStatusLabel toolStripStatusLabel1;
+        private ToolStripStatusLabel rodaPe;
         private ToolTip toolTip1;
         private ToolTip toolTip2;
         private ToolStrip toolStrip1;
@@ -296,6 +282,5 @@
         private ToolStripButton btnFiltro;
         private ToolStripButton btnAdiconarItem;
         private ToolStripButton btnConcluirItens;
-        private Button btnVoltarFiltro;
     }
 }

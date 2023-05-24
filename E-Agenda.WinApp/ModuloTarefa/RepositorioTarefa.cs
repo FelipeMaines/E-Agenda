@@ -1,5 +1,4 @@
-﻿
-namespace E_Agenda.WinApp.ModuloTarefa
+﻿namespace E_Agenda.WinApp.ModuloTarefa
 {
     public class RepositorioTarefa
     {
