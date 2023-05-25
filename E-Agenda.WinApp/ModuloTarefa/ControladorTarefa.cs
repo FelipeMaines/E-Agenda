@@ -58,7 +58,7 @@
 
         public override void Editar()
         {
-            Tarefa tarefa = listagemTarefa.ObterTarefaSelecionada();
+            Tarefa tarefa = ObterTarefaSelecionada();
 
             if (tarefa == null)
             {
@@ -85,9 +85,16 @@
             }
         }
 
+        public Tarefa ObterTarefaSelecionada()
+        {
+            int id = listagemTarefa.ObterIdSelecionado();
+
+            return repositorioTarefa.SelecionarPorId(id);
+        }
+
         public override void Excluir()
         {
-            Tarefa tarefa = listagemTarefa.ObterTarefaSelecionada();
+            Tarefa tarefa = ObterTarefaSelecionada();
 
             if (tarefa == null)
             {
@@ -125,7 +132,7 @@
 
         private void CarregarCompromissoComFiltro(TelaFiltroForm.statusCompromissoEnumTarefa statusSelecionado)
         {
-            Tarefa tarefaSelecionada = listagemTarefa.ObterTarefaSelecionada();
+            Tarefa tarefaSelecionada = ObterTarefaSelecionada();
             List<Itens> item = new List<Itens>();
             bool precisa = true;
 
@@ -166,7 +173,7 @@
         {
             TelaItensForm telaItem = new TelaItensForm();
 
-            Tarefa tarefaSelecionada = listagemTarefa.ObterTarefaSelecionada();
+            Tarefa tarefaSelecionada = ObterTarefaSelecionada();
 
             if (tarefaSelecionada == null)
             {
@@ -193,7 +200,7 @@
         {
             TelaConclusaoItensForm telaConclusao = new TelaConclusaoItensForm(repositorioTarefa);
 
-            Tarefa tarefaSelecionada = listagemTarefa.ObterTarefaSelecionada();
+            Tarefa tarefaSelecionada = ObterTarefaSelecionada();
 
             if (tarefaSelecionada == null)
             {

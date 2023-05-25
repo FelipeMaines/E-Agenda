@@ -19,17 +19,21 @@ namespace E_Agenda.WinApp.ModuloTarefa
         {
             InitializeComponent();
 
+            popularGrid();
+            ConfiguracaoGrid.ConfigurarGridSomenteLeitura(grid);
+            ConfiguracaoGrid.ConfigurarGridZebrado(grid);
+
             tarefas.Add(new Tarefa("Fazer Pizza", TelaTarefaForm.PrioridadeTarefaEnum.Baixa));
             tarefas.Add(new Tarefa("e-Agenda", TelaTarefaForm.PrioridadeTarefaEnum.Alta));
         }
 
         public void AtualizarRegistros(List<Tarefa> tarefas)
         {
-            listTarefas.Items.Clear();
+            grid.Rows.Clear();
 
             foreach (Tarefa tarefa in tarefas)
             {
-                listTarefas.Items.Add(tarefa);
+                grid.Rows.Add(tarefa.id, tarefa.prioridade, tarefa.conclusao, tarefa.dataAbertura, tarefa.dataFinalizda);
             }
         }
 
@@ -43,19 +47,42 @@ namespace E_Agenda.WinApp.ModuloTarefa
             }
         }
 
-        internal Tarefa ObterTarefaSelecionada()
+        private void popularGrid()
         {
-            try
+            DataGridViewColumn[] colunas = new DataGridViewColumn[]
             {
-                return (Tarefa)listTarefas.SelectedItem;
+                new DataGridViewTextBoxColumn()
+                {
+                    Name = "id",
+                    HeaderText = "Id"
+                },
+                 new DataGridViewTextBoxColumn()
+                {
+                    Name = "prioridade",
+                    HeaderText = "Prioridade"
+                },
+                  new DataGridViewTextBoxColumn()
+                {
+                    Name = "conclusao",
+                    HeaderText = "% Conclusao"
+                },
+                   new DataGridViewTextBoxColumn()
+                {
+                    Name = "dataAbertura",
+                    HeaderText = "Data de Abertura"
+                }, new DataGridViewTextBoxColumn()
+                {
+                    Name = "dataFinalizada",
+                    HeaderText = "Data de Finalizacao"
+                }
+            };
 
-            }
-            catch (Exception ex)
-            {
+            grid.Columns.AddRange(colunas);
+        }
 
-            }
-
-            return null;
+        public int ObterIdSelecionado()
+        {
+            return Convert.ToInt32(grid.SelectedRows[0].Cells["id"].Value);
         }
     }
 
