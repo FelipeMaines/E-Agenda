@@ -40,6 +40,13 @@
                 return;
         }
 
+        private Contato ObterContatoSelecionado()
+        {
+            int id = listagemContato.ObterIdSelecionado();
+
+            return repositorioContato.SelecionarPorId(id);
+        }
+
         private void RechamarVerificacao(ref TelaContatoForm telaContato, ref DialogResult opcaoEscolhida, ref Contato contato)
         {
             telaContato = new TelaContatoForm();
@@ -83,7 +90,7 @@
 
         public override void Editar()
         {
-            Contato contato = listagemContato.ObterContatoSelecionado();
+            Contato contato = ObterContatoSelecionado();
 
             if (contato == null)
             {
@@ -118,7 +125,7 @@
 
         public override void Excluir()
         {
-            Contato contato = listagemContato.ObterContatoSelecionado();
+            Contato contato = ObterContatoSelecionado();
 
             if (contato == null)
             {

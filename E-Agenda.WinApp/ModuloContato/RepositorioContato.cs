@@ -1,4 +1,6 @@
-﻿namespace E_Agenda.WinApp.ModuloContato
+﻿using E_Agenda.WinApp.Compartilhado;
+
+namespace E_Agenda.WinApp.ModuloContato
 {
     public class RepositorioContato
     {
@@ -28,7 +30,7 @@
             contatoSelecionado.empresa = contato.empresa;
         }
 
-        private Contato SelecionarPorId(int id)
+        public Contato SelecionarPorId(int id)
         {
             return contatos.FirstOrDefault(x => x.id == id);
         }
@@ -37,5 +39,7 @@
         {
             contatos.Remove(contato);
         }
+
+        
     }
 }

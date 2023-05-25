@@ -28,24 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            listTarefas = new ListBox();
             SuspendLayout();
-            // 
-            // listTarefas
-            // 
-            listTarefas.Dock = DockStyle.Fill;
-            listTarefas.FormattingEnabled = true;
-            listTarefas.ItemHeight = 15;
-            listTarefas.Location = new Point(0, 0);
-            listTarefas.Name = "listTarefas";
-            listTarefas.Size = new Size(930, 606);
-            listTarefas.TabIndex = 2;
             // 
             // ListagemTarefaControl
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(listTarefas);
             Name = "ListagemTarefaControl";
             Size = new Size(930, 606);
             ResumeLayout(false);

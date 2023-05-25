@@ -47,9 +47,10 @@ namespace E_Agenda.WinApp.ModuloTarefa
         {
             try
             {
-            return (Tarefa)listTarefas.SelectedItem;
+                return (Tarefa)listTarefas.SelectedItem;
 
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
 
             }
