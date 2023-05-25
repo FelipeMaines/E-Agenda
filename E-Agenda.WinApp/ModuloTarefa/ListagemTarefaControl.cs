@@ -39,11 +39,11 @@ namespace E_Agenda.WinApp.ModuloTarefa
 
         public void AtualizarRegistros(List<Itens> item)
         {
-            listTarefas.Items.Clear();
+            grid.Rows.Clear();
 
             foreach (Itens it in item)
             {
-                listTarefas.Items.Add(it);
+                grid.Rows.Add(it.id, it.descricao, it.concluida);
             }
         }
 

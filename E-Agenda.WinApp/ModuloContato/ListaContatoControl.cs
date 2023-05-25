@@ -26,7 +26,7 @@ namespace E_Agenda.WinApp.ModuloContato
 
             foreach (Contato contato in contatos)
             {
-                grid.Rows.Add(contato.id, contato.nome, contato.empresa, contato.email, contato.telefone);
+                grid.Rows.Add(contato.id, contato.nome, contato.empresa, contato.email, contato.telefone, contato.cargo);
             }
         }
 
@@ -61,6 +61,12 @@ namespace E_Agenda.WinApp.ModuloContato
                 {
                     Name = "empresa",
                     HeaderText = "Empresa"
+                },
+                  
+                  new DataGridViewTextBoxColumn()
+                {
+                    Name = "email",
+                    HeaderText = "Email"
                 },
                    new DataGridViewTextBoxColumn()
                 {

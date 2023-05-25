@@ -29,7 +29,7 @@
             compromissoSelecionado.horaFinal = compromisso.horaFinal;
         }
 
-        private Compromisso SelecionarPorId(int id)
+        public Compromisso SelecionarPorId(int id)
         {
             return compromissos.FirstOrDefault(i => i.id == id);
         }

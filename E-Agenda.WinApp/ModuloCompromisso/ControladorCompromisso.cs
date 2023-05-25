@@ -38,7 +38,7 @@
         public override void Editar()
         {
 
-            Compromisso compromisso = listagemCompromisso.ObterContatoSelecionado();
+            Compromisso compromisso = ObterCompromissoSelecionado();
 
             if (compromisso == null)
             {
@@ -65,9 +65,16 @@
             }
         }
 
+        private Compromisso ObterCompromissoSelecionado()
+        {
+            int id = listagemCompromisso.ObterIdSelecionado();
+
+            return repositorioCompromisso.SelecionarPorId(id);
+        }
+
         public override void Excluir()
         {
-            Compromisso compromisso = listagemCompromisso.ObterContatoSelecionado();
+            Compromisso compromisso = ObterCompromissoSelecionado();
 
             if (compromisso == null)
             {

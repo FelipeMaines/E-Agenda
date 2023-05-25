@@ -28,31 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
-            listaCompromissos = new ListBox();
+            grid = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)grid).BeginInit();
             SuspendLayout();
             // 
-            // listaCompromissos
+            // grid
             // 
-            listaCompromissos.Dock = DockStyle.Fill;
-            listaCompromissos.FormattingEnabled = true;
-            listaCompromissos.ItemHeight = 15;
-            listaCompromissos.Location = new Point(0, 0);
-            listaCompromissos.Name = "listaCompromissos";
-            listaCompromissos.Size = new Size(709, 567);
-            listaCompromissos.TabIndex = 0;
+            grid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            grid.Dock = DockStyle.Fill;
+            grid.Location = new Point(0, 0);
+            grid.Name = "grid";
+            grid.RowTemplate.Height = 25;
+            grid.Size = new Size(709, 567);
+            grid.TabIndex = 0;
             // 
             // ListagemCompromissoControl
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(listaCompromissos);
+            Controls.Add(grid);
             Name = "ListagemCompromissoControl";
             Size = new Size(709, 567);
+            ((System.ComponentModel.ISupportInitialize)grid).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private ListBox listaCompromissos;
+        private DataGridView grid;
     }
 }
