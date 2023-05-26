@@ -1,6 +1,7 @@
 using E_Agenda.WinApp.Compartilhado;
 using E_Agenda.WinApp.ModuloCompromisso;
 using E_Agenda.WinApp.ModuloContato;
+using E_Agenda.WinApp.ModuloDespesas;
 using E_Agenda.WinApp.ModuloTarefa;
 
 namespace E_Agenda.WinApp
@@ -10,6 +11,7 @@ namespace E_Agenda.WinApp
         private RepositorioContato repositorioContato = new RepositorioContato();
         private RepositorioTarefa repositorioTarefa = new RepositorioTarefa();
         private RepositorioCompromisso repositorioCompromisso = new RepositorioCompromisso();
+        private RepositorioDespesa repositorioDespesa = new RepositorioDespesa();
         private ControladorBase controlador;
         private static Form1 telaPrincipal;
 
@@ -18,9 +20,6 @@ namespace E_Agenda.WinApp
             InitializeComponent();
             telaPrincipal = this;
         }
-
-
-
 
         private void contatosMenuItem_Click(object sender, EventArgs e)
         {
@@ -57,6 +56,15 @@ namespace E_Agenda.WinApp
             labelTipoCadastro.Text = "cadastro De Compromissos";
 
             controlador = new ControladorCompromisso(repositorioCompromisso);
+
+            ConfigurarTelaPrincipal(controlador);
+        }
+
+        private void despesasToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            labelTipoCadastro.Text = "Cadastro de Financas";
+
+            controlador = new ControladorDespesa(repositorioDespesa);
 
             ConfigurarTelaPrincipal(controlador);
         }
@@ -131,8 +139,6 @@ namespace E_Agenda.WinApp
 
         }
 
-
-
         private void ConfigurarListagem(ControladorBase controladorBase)
         {
             UserControl listagem = controladorBase.ObterListagem();
@@ -153,5 +159,7 @@ namespace E_Agenda.WinApp
         {
             rodaPe.Text = erros;
         }
+
+        
     }
 }
