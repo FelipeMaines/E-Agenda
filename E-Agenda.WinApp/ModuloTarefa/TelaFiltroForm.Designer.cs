@@ -31,10 +31,10 @@
             button2 = new Button();
             btnFiltrar = new Button();
             gbOpcoes = new GroupBox();
+            radioTarefas = new RadioButton();
             radioAberto = new RadioButton();
             radioConcluido = new RadioButton();
             radioTodos = new RadioButton();
-            radioTarefas = new RadioButton();
             gbOpcoes.SuspendLayout();
             SuspendLayout();
             // 
@@ -73,42 +73,6 @@
             gbOpcoes.TabIndex = 6;
             gbOpcoes.TabStop = false;
             // 
-            // radioAberto
-            // 
-            radioAberto.AutoSize = true;
-            radioAberto.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            radioAberto.Location = new Point(0, 75);
-            radioAberto.Name = "radioAberto";
-            radioAberto.Size = new Size(207, 25);
-            radioAberto.TabIndex = 2;
-            radioAberto.TabStop = true;
-            radioAberto.Text = "Vizualizar itens em aberto";
-            radioAberto.UseVisualStyleBackColor = true;
-            // 
-            // radioConcluido
-            // 
-            radioConcluido.AutoSize = true;
-            radioConcluido.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            radioConcluido.Location = new Point(0, 44);
-            radioConcluido.Name = "radioConcluido";
-            radioConcluido.Size = new Size(210, 25);
-            radioConcluido.TabIndex = 1;
-            radioConcluido.TabStop = true;
-            radioConcluido.Text = "Vizualizar Itens concluidos";
-            radioConcluido.UseVisualStyleBackColor = true;
-            // 
-            // radioTodos
-            // 
-            radioTodos.AutoSize = true;
-            radioTodos.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            radioTodos.Location = new Point(0, 13);
-            radioTodos.Name = "radioTodos";
-            radioTodos.Size = new Size(195, 25);
-            radioTodos.TabIndex = 0;
-            radioTodos.TabStop = true;
-            radioTodos.Text = "Vizualizar todos os itens";
-            radioTodos.UseVisualStyleBackColor = true;
-            // 
             // radioTarefas
             // 
             radioTarefas.AutoSize = true;
@@ -120,6 +84,42 @@
             radioTarefas.TabStop = true;
             radioTarefas.Text = "Voltar a pagina de tarefas";
             radioTarefas.UseVisualStyleBackColor = true;
+            // 
+            // radioAberto
+            // 
+            radioAberto.AutoSize = true;
+            radioAberto.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            radioAberto.Location = new Point(0, 75);
+            radioAberto.Name = "radioAberto";
+            radioAberto.Size = new Size(221, 25);
+            radioAberto.TabIndex = 2;
+            radioAberto.TabStop = true;
+            radioAberto.Text = "Vizualizar tarefas em aberto";
+            radioAberto.UseVisualStyleBackColor = true;
+            // 
+            // radioConcluido
+            // 
+            radioConcluido.AutoSize = true;
+            radioConcluido.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            radioConcluido.Location = new Point(0, 44);
+            radioConcluido.Name = "radioConcluido";
+            radioConcluido.Size = new Size(224, 25);
+            radioConcluido.TabIndex = 1;
+            radioConcluido.TabStop = true;
+            radioConcluido.Text = "Vizualizar tarefas concluidos";
+            radioConcluido.UseVisualStyleBackColor = true;
+            // 
+            // radioTodos
+            // 
+            radioTodos.AutoSize = true;
+            radioTodos.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            radioTodos.Location = new Point(0, 13);
+            radioTodos.Name = "radioTodos";
+            radioTodos.Size = new Size(207, 25);
+            radioTodos.TabIndex = 0;
+            radioTodos.TabStop = true;
+            radioTodos.Text = "Vizualizar todas as tarefas";
+            radioTodos.UseVisualStyleBackColor = true;
             // 
             // TelaFiltroForm
             // 

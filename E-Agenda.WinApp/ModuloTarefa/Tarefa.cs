@@ -1,16 +1,13 @@
-﻿using static E_Agenda.WinApp.ModuloTarefa.TelaTarefaForm;
-
-namespace E_Agenda.WinApp.ModuloTarefa
+﻿namespace E_Agenda.WinApp.ModuloTarefa
 {
-    public class Tarefa : Entidade
+    [Serializable]
+    public class Tarefa : BaseEntidade<Tarefa>
     {
         public string nome { get; set; }
         public PrioridadeTarefaEnum prioridade { get; set; }
-
         public List<Itens> listaItens;
         public List<Itens> listaItensProntos;
         public decimal conclusao;
-
         public DateTime dataAbertura { get; set; }
         public DateTime dataFinalizda { get; set; }
         public bool estaFinalizada { get; set; }
@@ -22,6 +19,12 @@ namespace E_Agenda.WinApp.ModuloTarefa
             listaItens = new List<Itens>(); //assdsdada
             listaItensProntos = new List<Itens>();
             dataAbertura = DateTime.Now.Date;
+        }
+
+        public override void AtualizarInformacoes(Tarefa registroAtualizado)
+        {
+            this.nome = registroAtualizado.nome;
+            this.prioridade = registroAtualizado.prioridade;
         }
 
         public override string ToString()
@@ -49,8 +52,7 @@ namespace E_Agenda.WinApp.ModuloTarefa
             return erros.ToArray();
         }
 
-        
-
+       
     }
 
 }

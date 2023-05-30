@@ -1,6 +1,7 @@
 ﻿namespace E_Agenda.WinApp.ModuloContato
 {
-    public class Contato : Entidade
+    [Serializable]
+    public class Contato : BaseEntidade<Contato>
     {
         public string nome;
         public string email;
@@ -14,6 +15,17 @@
             this.empresa =empresa;
             this.email = email;
             this.cargo = cargo;
+        }
+
+
+        public override void AtualizarInformacoes(Contato registroAtualizado)
+        {
+
+            this.nome = registroAtualizado.nome;
+            this.telefone = registroAtualizado.telefone;
+            this.email = registroAtualizado.email;
+            this.cargo = registroAtualizado.cargo;
+            this.empresa = registroAtualizado.empresa;
         }
 
         public override string ToString()
@@ -62,5 +74,6 @@
 
             return true;
         }
+
     }
 }

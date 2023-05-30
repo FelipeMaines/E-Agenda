@@ -23,6 +23,7 @@ namespace E_Agenda.WinApp.ModuloDespesas
 
         public override string ToolTipAdicionaritens => "";
 
+        public override bool AdicionarItensHabilitado => true;
         public ControladorDespesa(RepositorioDespesa repositorio)
         {
             repositorioDespesa = repositorio;
@@ -78,7 +79,7 @@ namespace E_Agenda.WinApp.ModuloDespesas
             if (opcaoEscolhida == DialogResult.OK)
             {
                 telaDespesa.Despesa.id = id;
-                repositorioDespesa.Editar(telaDespesa.Despesa);
+                repositorioDespesa.Editar(id, telaDespesa.Despesa);
 
                 CarregarDespesas();
             }

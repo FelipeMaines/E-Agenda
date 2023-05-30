@@ -2,13 +2,13 @@
 {
     public partial class TelaConclusaoItensForm : Form
     {
-        private RepositorioTarefa repositorioTarefa;
+       
 
         public List<Itens> itensConcluidos = new List<Itens>();
-        public TelaConclusaoItensForm(RepositorioTarefa repositorioTarefa)
+        public TelaConclusaoItensForm()
         {
             InitializeComponent();
-            this.repositorioTarefa = repositorioTarefa;
+           
         }
 
         public Itens itens

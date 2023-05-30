@@ -35,6 +35,8 @@
 
         public override string ToolTipAdicionaritens { get { return "Ver itens"; } }
 
+        public override bool FiltrarHabilitado => true;
+
         public override void Editar()
         {
 
@@ -59,7 +61,7 @@
             if (opcaoEscolhida == DialogResult.OK)
             {
                 telaCompromisso.Compromisso.id = id;
-                repositorioCompromisso.Editar(telaCompromisso.Compromisso);
+                repositorioCompromisso.Editar(id, telaCompromisso.Compromisso);
 
                 CarregarCompromisso();
             }

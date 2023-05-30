@@ -1,6 +1,7 @@
 ﻿namespace E_Agenda.WinApp.ModuloTarefa
 {
-    public class Itens : Entidade
+    [Serializable]
+    public class Itens : BaseEntidade<Itens>
     {
         public string descricao;
         public string concluida;
@@ -11,6 +12,11 @@
             this.descricao = descricao;
             this.concluida = concluida;
             estado = false;
+        }
+
+        public override void AtualizarInformacoes(Itens registroAtualizado)
+        {
+            MessageBox.Show("Test");
         }
 
         public override string ToString()

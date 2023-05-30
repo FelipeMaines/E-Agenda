@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 namespace E_Agenda.WinApp.ModuloCompromisso
 {
-    public class Compromisso : Entidade
+    public class Compromisso : BaseEntidade<Compromisso>
     {
         public string assunto;
         public string local;
@@ -21,6 +21,16 @@ namespace E_Agenda.WinApp.ModuloCompromisso
             this.horaInicio = horaInicio;
             this.horaFinal = horaFinal;
             this.online = online;
+        }
+
+        public override void AtualizarInformacoes(Compromisso registroAtualizado)
+        {
+            this.assunto = registroAtualizado.assunto;
+            this.local = registroAtualizado.local;
+            this.data = registroAtualizado.data;
+            this.horaInicio = registroAtualizado.horaInicio;
+            this.horaFinal = registroAtualizado.horaFinal;
+            this.online = registroAtualizado.online;
         }
 
         public override string ToString()

@@ -3,7 +3,7 @@
     public class ControladorTarefa : ControladorBase
     {
         ListagemTarefaControl listagemTarefa;
-        RepositorioTarefa repositorioTarefa;
+        IRepositorioTarefa repositorioTarefa;
         public override string ToolTipInserir { get { return "Inserir Nova Tarefa"; } }
 
         public override string ToolTipoEditar { get { return "Editar Tarefa"; } }
@@ -14,7 +14,14 @@
 
         public override string ToolTipAdicionaritens { get { return "Adicionar itens"; } }
 
-        public ControladorTarefa(RepositorioTarefa repositorioTarefa)
+        public override bool AdicionarItensHabilitado => true;
+
+        public override bool ConcluirItensHabilitado => true;
+
+        public override bool FiltrarHabilitado => true;
+
+
+        public ControladorTarefa(IRepositorioTarefa repositorioTarefa)
         {
             this.repositorioTarefa = repositorioTarefa;
         }
@@ -51,7 +58,7 @@
 
         private void CarregarTarefas()
         {
-            List<Tarefa> tarefas = repositorioTarefa.SelecionarTodos();
+            List<Tarefa> tarefas = repositorioTarefa.SelecionarTodosItens();
 
             listagemTarefa.AtualizarRegistros(tarefas);
         }
@@ -79,7 +86,7 @@
             if (opcaoEscolhida == DialogResult.OK)
             {
                 telaTarefa.Tarefa.id = id;
-                repositorioTarefa.Editar(telaTarefa.Tarefa);
+                repositorioTarefa.Editar(id, telaTarefa.Tarefa);
 
                 CarregarTarefas();
             }
@@ -132,25 +139,24 @@
 
         private void CarregarCompromissoComFiltro(TelaFiltroForm.statusCompromissoEnumTarefa statusSelecionado)
         {
-            Tarefa tarefaSelecionada = ObterTarefaSelecionada();
-            List<Itens> item = new List<Itens>();
+            List<Tarefa> item = new List<Tarefa>();
             bool precisa = true;
 
             switch (statusSelecionado)
             {
                 case TelaFiltroForm.statusCompromissoEnumTarefa.aberto:
 
-                    item = repositorioTarefa.SelecionarItensEmAberto(tarefaSelecionada);
+                    item = repositorioTarefa.SelecionarItensEmAberto();
                     break;
 
                 case TelaFiltroForm.statusCompromissoEnumTarefa.finalizado:
 
-                    item = repositorioTarefa.SelecionarItensFinalizadas(tarefaSelecionada);
+                    item = repositorioTarefa.SelecionarItensFinalizadas();
                     break;
 
                 case TelaFiltroForm.statusCompromissoEnumTarefa.todos:
 
-                    item = repositorioTarefa.SelecionarTodosItens(tarefaSelecionada);
+                    item = repositorioTarefa.SelecionarTodosItens();
                     break;
 
                 case TelaFiltroForm.statusCompromissoEnumTarefa.tareafas:
@@ -163,7 +169,7 @@
 
         }
 
-        private void CarregarTarefas(List<Itens> item)
+        private void CarregarTarefas(List<Tarefa> item)
         {
 
             listagemTarefa.AtualizarRegistros(item);
@@ -198,7 +204,7 @@
 
         public override void ConcluirItens()
         {
-            TelaConclusaoItensForm telaConclusao = new TelaConclusaoItensForm(repositorioTarefa);
+            TelaConclusaoItensForm telaConclusao = new TelaConclusaoItensForm();
 
             Tarefa tarefaSelecionada = ObterTarefaSelecionada();
 
@@ -209,12 +215,6 @@
             }
 
             telaConclusao.LimparTela();
-
-            if (verificarConclusao(tarefaSelecionada))
-            {
-                tarefaSelecionada.dataFinalizda = DateTime.Now;
-                tarefaSelecionada.estaFinalizada = true;
-            }
 
             foreach (Itens item in tarefaSelecionada.listaItens)
             {
@@ -228,7 +228,11 @@
                 CarregarTarefas();
             }
 
-            
+            if (verificarConclusao(tarefaSelecionada))
+            {
+                tarefaSelecionada.dataFinalizda = DateTime.Now;
+                tarefaSelecionada.estaFinalizada = true;
+            }
         }
 
         public bool verificarConclusao(Tarefa tarefaSelecionada)
@@ -243,7 +247,7 @@
 
             tarefaSelecionada.conclusao = (contadorDeConclusao / contadorDeItens) * 100;
 
-            if (contadorDeConclusao == contadorDeItens)
+            if (tarefaSelecionada.conclusao == 100)
             {
                 return true;
             }

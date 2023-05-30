@@ -2,7 +2,7 @@
 {
     public class ControladorContato : ControladorBase
     {
-        private RepositorioContato repositorioContato;
+        private IRepositorioContato repositorioContato;
 
         private ListaContatoControl listagemContato;
 
@@ -18,7 +18,7 @@
 
 
 
-        public ControladorContato(RepositorioContato repositorioContato)
+        public ControladorContato(IRepositorioContato repositorioContato)
         {
             this.repositorioContato = repositorioContato;
         }
@@ -112,7 +112,7 @@
             if (opcaoEscolhida == DialogResult.OK)
             {
                     telaContato.Contato.id = id;
-                    repositorioContato.Editar(telaContato.Contato);
+                    repositorioContato.Editar(id, telaContato.Contato);
 
                     CarregarContatos();
             }

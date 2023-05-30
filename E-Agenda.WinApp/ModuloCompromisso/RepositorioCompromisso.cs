@@ -1,49 +1,19 @@
 ﻿namespace E_Agenda.WinApp.ModuloCompromisso
 {
-    public class RepositorioCompromisso
+    public class RepositorioCompromisso : RepositorioMemoriaBase<Compromisso>
     {
-        List<Compromisso> compromissos = new List<Compromisso>();
-
         private static int contador = 1;
-        public List<Compromisso> SelecionarTodos()
+
+        public RepositorioCompromisso(List<Compromisso> compromissos)
         {
-            return compromissos;
+            this.listaRegistros = compromissos;
         }
-
-        public void Inserir(Compromisso compromisso)
-        {
-            compromisso.id = contador;
-            compromissos.Add(compromisso);
-            contador++;
-        }
-
-        public void Editar(Compromisso compromisso)
-        {
-
-            Compromisso compromissoSelecionado = SelecionarPorId(compromisso.id);
-
-            compromissoSelecionado.assunto = compromisso.assunto;
-            compromissoSelecionado.local = compromisso.local;
-            compromissoSelecionado.data = compromisso.data;
-            compromissoSelecionado.horaInicio = compromisso.horaInicio;
-            compromissoSelecionado.horaFinal = compromisso.horaFinal;
-        }
-
-        public Compromisso SelecionarPorId(int id)
-        {
-            return compromissos.FirstOrDefault(i => i.id == id);
-        }
-
-        public void Excluir(Compromisso compromisso)
-        {
-            compromissos.Remove(compromisso);
-        }
-
+       
         public List<Compromisso> SelecionarCompromissosPassados(DateTime now)
         {
             List<Compromisso> compromissosPassados = new List<Compromisso>();
 
-            foreach (Compromisso item in compromissos)
+            foreach (Compromisso item in listaRegistros)
             {
                 if(DateTime.Parse(item.data) < now)
                 {
@@ -57,7 +27,7 @@
         {
             List<Compromisso> compromissosFuturos = new List<Compromisso>();
 
-            foreach (Compromisso item in compromissos)
+            foreach (Compromisso item in listaRegistros)
             {
                 if (DateTime.Parse(item.data) > dataInicial && DateTime.Parse(item.data) < dataFinal)
                 {

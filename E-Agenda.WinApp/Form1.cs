@@ -8,10 +8,10 @@ namespace E_Agenda.WinApp
 {
     public partial class Form1 : Form
     {
-        private RepositorioContato repositorioContato = new RepositorioContato();
-        private RepositorioTarefa repositorioTarefa = new RepositorioTarefa();
-        private RepositorioCompromisso repositorioCompromisso = new RepositorioCompromisso();
-        private RepositorioDespesa repositorioDespesa = new RepositorioDespesa();
+        private IRepositorioContato repositorioContato = new RepositorioContatoArquivo();
+        private RepositorioCompromisso repositorioCompromisso = new RepositorioCompromisso(new List<Compromisso>());
+        private RepositorioDespesa repositorioDespesa = new RepositorioDespesa(new List<Despesa>());
+        private IRepositorioTarefa repositorioTarefa = new RepositorioTarefaArquivo();
         private ControladorBase controlador;
         private static Form1 telaPrincipal;
 
@@ -21,6 +21,8 @@ namespace E_Agenda.WinApp
             telaPrincipal = this;
         }
 
+       
+
         private void contatosMenuItem_Click(object sender, EventArgs e)
         {
             labelTipoCadastro.Text = "cadastro De Contatos";
@@ -29,6 +31,16 @@ namespace E_Agenda.WinApp
 
             ConfigurarTelaPrincipal(controlador);
 
+        }
+
+        private void ConfirgurarEstados()
+        {
+            btnInserir.Enabled = controlador.InserirHabilitado;
+            btnEditar.Enabled = controlador.EditarHabilitado;
+            btnExcluir.Enabled = controlador.ExcluirHabilitado;
+            btnFiltro.Enabled = controlador.FiltrarHabilitado;
+            btnAdiconarItem.Enabled = controlador.AdicionarItensHabilitado;
+            btnConcluirItens.Enabled = controlador.ConcluirItensHabilitado;
         }
 
         public static Form1 Instancia
@@ -72,6 +84,8 @@ namespace E_Agenda.WinApp
         private void ConfigurarTelaPrincipal(ControladorBase controladorBase)
         {
             ConfirgurarToolTips(controlador);
+
+            ConfirgurarEstados();
 
             ConfigurarListagem(controlador);
         }
