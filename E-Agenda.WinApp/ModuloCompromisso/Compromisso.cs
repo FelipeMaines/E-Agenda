@@ -8,12 +8,12 @@ namespace E_Agenda.WinApp.ModuloCompromisso
     {
         public string assunto;
         public string local;
-        public string data;
-        public string horaInicio;
-        public string horaFinal;
+        public DateTime data;
+        public DateTime horaInicio;
+        public DateTime horaFinal;
         public string online;
 
-        public Compromisso(string assunto, string local, string data, string horaInicio, string horaFinal, string online)
+        public Compromisso(string assunto, string local, DateTime data, DateTime horaInicio, DateTime horaFinal, string online)
         {
             this.assunto = assunto;
             this.local = local;
@@ -50,9 +50,6 @@ namespace E_Agenda.WinApp.ModuloCompromisso
 
             else if (horaFinal == horaInicio)
                 erros.Add("O compromisso nao pode comecar e terminar na mesmo hora!");
-
-            else if (DateTime.Parse(horaFinal) < DateTime.Parse(horaInicio))
-                erros.Add("O compromisso nao volta no tempo!");
 
             return erros.ToArray();
         }

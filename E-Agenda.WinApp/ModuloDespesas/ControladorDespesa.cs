@@ -10,8 +10,8 @@ namespace E_Agenda.WinApp.ModuloDespesas
 {
     public class ControladorDespesa : ControladorBase
     {
-        RepositorioDespesa repositorioDespesa;
-        repositorioCategoria repositorioCategoria = new repositorioCategoria();
+        IRepositorioDespesas repositorioDespesa;
+        IRepositorioCategorias repositorioCategoria = new RepositorioCategoriaArquivo();
         ListagemDespesaControl listagemDespesa;
         public override string ToolTipInserir => "";
 
@@ -24,7 +24,7 @@ namespace E_Agenda.WinApp.ModuloDespesas
         public override string ToolTipAdicionaritens => "";
 
         public override bool AdicionarItensHabilitado => true;
-        public ControladorDespesa(RepositorioDespesa repositorio)
+        public ControladorDespesa(IRepositorioDespesas repositorio)
         {
             repositorioDespesa = repositorio;
 

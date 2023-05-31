@@ -15,9 +15,9 @@
                 tbIdCompromisso.Text = value.id.ToString();
                 tbAssuntoCompromisso.Text = value.assunto;
                 tbLocalCompromisso.Text = value.local;
-                tbDateTime.Text = value.data;
-                tbHoraInicioCompromisso.Text = value.horaInicio;
-                tbHoraFinalCompromisso.Text = value.horaFinal;
+                tbDateTime.Text = value.data.ToString();
+                tbHoraInicioCompromisso.Text = value.horaInicio.ToString();
+                tbHoraFinalCompromisso.Text = value.horaFinal.ToString();
             }
             get
             {
@@ -29,9 +29,9 @@
         {
             string assunto = tbAssuntoCompromisso.Text;
             string local = tbLocalCompromisso.Text;
-            string data = tbDateTime.Text;
-            string horaInicio = tbHoraInicioCompromisso.Text;
-            string horaFinal = tbHoraFinalCompromisso.Text;
+            DateTime data = tbDateTime.Value;
+            DateTime horaInicio = tbHoraInicioCompromisso.Value;
+            DateTime horaFinal = tbHoraFinalCompromisso.Value;
             string online = caixaRadios.Controls.OfType<RadioButton>().SingleOrDefault(RadioButton => RadioButton.Checked).Text;
 
             compromisso = new Compromisso(assunto, local, data, horaInicio, horaFinal, online);

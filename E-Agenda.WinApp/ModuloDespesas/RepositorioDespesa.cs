@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace E_Agenda.WinApp.ModuloDespesas
 {
-    public class RepositorioDespesa : RepositorioMemoriaBase<Despesa>
+    public class RepositorioDespesa : RepositorioMemoriaBase<Despesa>, IRepositorioDespesas
     {
         public RepositorioDespesa(List<Despesa> despesas)
         {

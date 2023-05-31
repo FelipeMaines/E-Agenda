@@ -1,6 +1,6 @@
 ﻿namespace E_Agenda.WinApp.ModuloCompromisso
 {
-    public class RepositorioCompromisso : RepositorioMemoriaBase<Compromisso>
+    public class RepositorioCompromisso : RepositorioMemoriaBase<Compromisso>, IRepositorioCompromisso
     {
         private static int contador = 1;
 
@@ -15,7 +15,7 @@
 
             foreach (Compromisso item in listaRegistros)
             {
-                if(DateTime.Parse(item.data) < now)
+                if(item.data < now)
                 {
                     compromissosPassados.Add(item);
                 }
@@ -29,7 +29,7 @@
 
             foreach (Compromisso item in listaRegistros)
             {
-                if (DateTime.Parse(item.data) > dataInicial && DateTime.Parse(item.data) < dataFinal)
+                if (item.data > dataInicial && item.data < dataFinal)
                 {
                     compromissosFuturos.Add(item);
                 }

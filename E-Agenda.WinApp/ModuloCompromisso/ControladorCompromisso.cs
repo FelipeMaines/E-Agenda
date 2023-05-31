@@ -4,23 +4,13 @@
     {
 
         CultureInfo cultureInfo = new CultureInfo("pt-BR");
-        RepositorioCompromisso repositorioCompromisso;
+        IRepositorioCompromisso repositorioCompromisso;
         ListagemCompromissoControl listagemCompromisso;
 
-        public ControladorCompromisso(RepositorioCompromisso repositorio)
+        public ControladorCompromisso(IRepositorioCompromisso repositorio)
         {
             this.repositorioCompromisso = repositorio;
-
-            Compromisso compromisso = new Compromisso("pesca", "lago", "12/5/2022", "13:20:00", "19:00:00", "precensical");
-            Compromisso compromisso2 = new Compromisso("Play", "Casa", "21/5/2024", "13:20:00", "19:00:00", "online");
-            Compromisso compromisso3 = new Compromisso("Jogar", "Casa", "22/5/2023", "13:20:00", "19:00:00", "online");
-            Compromisso compromisso4 = new Compromisso("Cartear", "Casa Fallen", "23/5/2023", "19:20:00", "23:50:00", "presencial");
-
-            repositorioCompromisso.Inserir(compromisso);
-            repositorioCompromisso.Inserir(compromisso2);
-            repositorioCompromisso.Inserir(compromisso3);
-            repositorioCompromisso.Inserir(compromisso4);
-
+           
             ObterListagem();
             CarregarCompromisso();
 
@@ -184,16 +174,16 @@
         private bool verificarOcupacao(Compromisso compromisso)
         {
             List<Compromisso> listaVerificacao = repositorioCompromisso.SelecionarTodos();
-            DateTime data = DateTime.Parse(compromisso.data, cultureInfo);
+            DateTime data = compromisso.data;
 
-            DateTime horaInicio = DateTime.Parse(compromisso.horaInicio, cultureInfo);
-            DateTime horaFinal = DateTime.Parse(compromisso.horaFinal, cultureInfo);
+            DateTime horaInicio = compromisso.horaInicio;
+            DateTime horaFinal = compromisso.horaFinal;
 
             foreach (Compromisso item in listaVerificacao)
             {
-                DateTime dataItem = DateTime.Parse(item.data, cultureInfo);
-                DateTime horaComecoItem = DateTime.Parse(item.horaInicio, cultureInfo);
-                DateTime horaFinalItem = DateTime.Parse(item.horaFinal, cultureInfo);
+                DateTime dataItem = item.data;
+                DateTime horaComecoItem = item.horaInicio;
+                DateTime horaFinalItem = item.horaFinal;
 
                 if (data == dataItem)
                 {
