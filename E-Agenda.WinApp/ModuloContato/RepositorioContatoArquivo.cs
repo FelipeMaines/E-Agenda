@@ -1,4 +1,5 @@
 ﻿using E_Agenda.WinApp.ModuloTarefa;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +18,7 @@ namespace E_Agenda.WinApp.ModuloContato
         public RepositorioContatoArquivo()
         {
             if (File.Exists(NOME_ARQUIVO_CONTATO))
-                CarregarTarefasDoArquivo();
+                CarregarContatosDoArquivo();
         }
 
         public void Inserir(Contato contato)
@@ -60,26 +61,32 @@ namespace E_Agenda.WinApp.ModuloContato
 
         private void GravarTarefasEmArquivo()
         {
-            BinaryFormatter serializer = new BinaryFormatter();
+            //BinaryFormatter serializer = new BinaryFormatter();
 
-            MemoryStream tarefaStream = new MemoryStream();
+            //MemoryStream tarefaStream = new MemoryStream();
 
-            serializer.Serialize(tarefaStream, contatos);
+            //serializer.Serialize(tarefaStream, contatos);
 
-            byte[] bytes = tarefaStream.ToArray();
+            //byte[] bytes = tarefaStream.ToArray();
+           
+            string jsonString = JsonConvert.SerializeObject(contatos);
 
-            File.WriteAllBytes(NOME_ARQUIVO_CONTATO, bytes);
+            File.WriteAllText(NOME_ARQUIVO_CONTATO, jsonString);
         }
 
-        private void CarregarTarefasDoArquivo()
+        private void CarregarContatosDoArquivo()
         {
-            BinaryFormatter serializer = new BinaryFormatter();
+        //    BinaryFormatter serializer = new BinaryFormatter();
 
-            byte[] tarefaEmBytes = File.ReadAllBytes(NOME_ARQUIVO_CONTATO);
+        //    byte[] tarefaEmBytes = File.ReadAllBytes(NOME_ARQUIVO_CONTATO);
 
-            MemoryStream tarefasStream = new MemoryStream(tarefaEmBytes);
+        //    MemoryStream tarefasStream = new MemoryStream(tarefaEmBytes);
 
-            contatos = (List<Contato>)serializer.Deserialize(tarefasStream);
+        //    contatos = (List<Contato>)serializer.Deserialize(tarefasStream);
+
+            string jsonStr = File.ReadAllText(NOME_ARQUIVO_CONTATO);
+
+            contatos = JsonConvert.DeserializeObject<List<Contato>>(jsonStr);
 
             AtualizarContador();
         }
