@@ -188,11 +188,12 @@
             }
 
             telaItem.LimparTela();
+            int i = 0;
 
             foreach (Itens item in tarefaSelecionada.listaItens)
-            {
-                telaItem.AdicionarItem(item);
-            }
+                telaItem.AdicionarItem(item, ref i);
+
+           
 
             if (telaItem.ShowDialog() == DialogResult.OK)
             {
@@ -215,11 +216,10 @@
             }
 
             telaConclusao.LimparTela();
+            int i = 0;
 
             foreach (Itens item in tarefaSelecionada.listaItens)
-            {
-                telaConclusao.AdicionarItem(item);
-            }
+                telaConclusao.AdicionarItem(item, ref i);
 
             if (telaConclusao.ShowDialog() == DialogResult.OK)
             {
@@ -229,9 +229,7 @@
             }
 
             if (verificarConclusao(tarefaSelecionada))
-            {
                 repositorioTarefa.ConcluirItem(tarefaSelecionada);
-            }
 
             CarregarTarefas();
         }

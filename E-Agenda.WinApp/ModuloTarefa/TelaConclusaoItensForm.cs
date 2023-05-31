@@ -2,13 +2,10 @@
 {
     public partial class TelaConclusaoItensForm : Form
     {
-       
-
         public List<Itens> itensConcluidos = new List<Itens>();
         public TelaConclusaoItensForm()
         {
             InitializeComponent();
-           
         }
 
         public Itens itens
@@ -23,12 +20,17 @@
             }
         }
 
-        internal void AdicionarItem(Itens item)
+        public void AdicionarItem(Itens item, ref int i)
         {
             lbListaitens.Items.Add(item.descricao);
+
+            if (item.estado)
+                lbListaitens.SetItemChecked(i, true);
+
+            i++;
         }
 
-        internal void LimparTela()
+        public void LimparTela()
         {
             lbListaitens.Items.Clear();
         }
@@ -59,8 +61,6 @@
                     }
                 }
             }
-
-
         }
     }
 }

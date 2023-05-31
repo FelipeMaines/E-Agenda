@@ -15,6 +15,7 @@ namespace E_Agenda.WinApp.ModuloTarefa
     public partial class TelaItensForm : Form
     {
         public Itens item;
+        public static int contador;
         public TelaItensForm()
         {
             InitializeComponent();
@@ -32,10 +33,15 @@ namespace E_Agenda.WinApp.ModuloTarefa
             }
         }
 
-        public void AdicionarItem(Itens item)
+        public void AdicionarItem(Itens item, ref int i)
         {
-            if (item.estado == false)
-                lbListaitens.Items.Add(item.descricao);
+              lbListaitens.Items.Add(item.descricao);
+
+                if (item.estado)
+                    lbListaitens.SetItemChecked(i, true);
+
+                i++;
+            
         }
 
         internal void LimparTela()
@@ -47,11 +53,11 @@ namespace E_Agenda.WinApp.ModuloTarefa
         {
             string descricao = txtDescricao.Text;
             string concluida = "";
-          concluida = CaixaRadiosStatus.Controls.OfType<RadioButton>().SingleOrDefault(RadioButton => RadioButton.Checked).Tag.ToString();
-
-           
+            concluida = CaixaRadiosStatus.Controls.OfType<RadioButton>().SingleOrDefault(RadioButton => RadioButton.Checked).Tag.ToString();
 
             item = new Itens(descricao, concluida);
+            item.id = contador;
+            contador++;
 
             string[] erros = itens.Validar();
 
