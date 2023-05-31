@@ -5,9 +5,12 @@
     {
         public string nome { get; set; }
         public PrioridadeTarefaEnum prioridade { get; set; }
+
         public List<Itens> listaItens;
+
         public List<Itens> listaItensProntos;
-        public decimal conclusao;
+
+        public double conclusao;
         public DateTime dataAbertura { get; set; }
         public DateTime dataFinalizda { get; set; }
         public bool estaFinalizada { get; set; }

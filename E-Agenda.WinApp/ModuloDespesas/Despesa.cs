@@ -1,7 +1,4 @@
-﻿
-using static E_Agenda.WinApp.ModuloDespesas.TelaDespesaForm;
-
-namespace E_Agenda.WinApp.ModuloDespesas
+﻿namespace E_Agenda.WinApp.ModuloDespesas
 {
     public class Despesa : BaseEntidade<Despesa>
     {

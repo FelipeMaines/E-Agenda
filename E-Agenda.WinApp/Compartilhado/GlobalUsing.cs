@@ -4,3 +4,4 @@ global using System.Text.RegularExpressions;
 global using System.Globalization;
 global using static E_Agenda.WinApp.ModuloTarefa.TelaTarefaForm;
 global using Newtonsoft.Json;
+global using System.Runtime.Serialization.Formatters.Binary;

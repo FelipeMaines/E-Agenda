@@ -1,17 +1,11 @@
-﻿using E_Agenda.WinApp.ModuloContato;
-using E_Agenda.WinApp.ModuloTarefa;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using E_Agenda.WinApp.Compartilhado;
 
 namespace E_Agenda.WinApp.ModuloDespesas
 {
     public class ControladorDespesa : ControladorBase
     {
-        IRepositorioDespesas repositorioDespesa;
-        IRepositorioCategorias repositorioCategoria = new RepositorioCategoriaArquivo();
+        IRepositorioBase<Despesa> repositorioDespesa;
+        IRepositorioBase<Categorias> repositorioCategoria = new RepositorioCategoriaArquivo();
         ListagemDespesaControl listagemDespesa;
         public override string ToolTipInserir => "";
 
@@ -24,7 +18,7 @@ namespace E_Agenda.WinApp.ModuloDespesas
         public override string ToolTipAdicionaritens => "";
 
         public override bool AdicionarItensHabilitado => true;
-        public ControladorDespesa(IRepositorioDespesas repositorio)
+        public ControladorDespesa(IRepositorioBase<Despesa> repositorio)
         {
             repositorioDespesa = repositorio;
 

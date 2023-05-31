@@ -1,13 +1,6 @@
-﻿using E_Agenda.WinApp.ModuloContato;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace E_Agenda.WinApp.ModuloDespesas
+﻿namespace E_Agenda.WinApp.ModuloDespesas
 {
-    public class RepositorioDespesa : RepositorioMemoriaBase<Despesa>, IRepositorioDespesas
+    public class RepositorioDespesa : RepositorioMemoriaBase<Despesa>, IRepositorioDespesa
     {
         public RepositorioDespesa(List<Despesa> despesas)
         {

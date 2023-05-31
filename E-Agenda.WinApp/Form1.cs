@@ -8,9 +8,9 @@ namespace E_Agenda.WinApp
 {
     public partial class Form1 : Form
     {
-        private IRepositorioContato repositorioContato = new RepositorioContatoArquivo();
+        private IRepositorioBase<Contato> repositorioContato = new RepositorioContatoArquivo();
         private IRepositorioCompromisso repositorioCompromisso = new RepositorioCompromissoArquivo();
-        private IRepositorioDespesas repositorioDespesa = new RepositorioDespesaArquivo();
+        private IRepositorioBase<Despesa> repositorioDespesa = new RepositorioDespesaArquivo();
         private IRepositorioTarefa repositorioTarefa = new RepositorioTarefaArquivo();
         private ControladorBase controlador;
         private static Form1 telaPrincipal;
@@ -21,7 +21,7 @@ namespace E_Agenda.WinApp
             telaPrincipal = this;
         }
 
-       
+
 
         private void contatosMenuItem_Click(object sender, EventArgs e)
         {
@@ -130,6 +130,8 @@ namespace E_Agenda.WinApp
                 return;
 
             controlador.ConcluirItens();
+
+
         }
 
         private bool VerificarNullControlador()
@@ -174,6 +176,9 @@ namespace E_Agenda.WinApp
             rodaPe.Text = erros;
         }
 
-        
+        private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
     }
 }

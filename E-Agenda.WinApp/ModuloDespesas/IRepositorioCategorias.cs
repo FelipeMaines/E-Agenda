@@ -6,9 +6,7 @@ using System.Threading.Tasks;
 
 namespace E_Agenda.WinApp.ModuloDespesas
 {
-    public interface IRepositorioCategorias
+    public interface IRepositorioCategorias : IRepositorioBase<Categorias>
     {
-        void Inserir(Categorias tarefa);
-        List<Categorias> SelecionarTodos();
     }
 }

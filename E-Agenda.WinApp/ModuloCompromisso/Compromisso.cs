@@ -1,7 +1,4 @@
-﻿using E_Agenda.WinApp.Compartilhado;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿
 namespace E_Agenda.WinApp.ModuloCompromisso
 {
     public class Compromisso : BaseEntidade<Compromisso>

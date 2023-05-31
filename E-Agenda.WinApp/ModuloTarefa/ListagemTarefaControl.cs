@@ -23,8 +23,7 @@ namespace E_Agenda.WinApp.ModuloTarefa
             ConfiguracaoGrid.ConfigurarGridSomenteLeitura(grid);
             ConfiguracaoGrid.ConfigurarGridZebrado(grid);
 
-            tarefas.Add(new Tarefa("Fazer Pizza", TelaTarefaForm.PrioridadeTarefaEnum.Baixa));
-            tarefas.Add(new Tarefa("e-Agenda", TelaTarefaForm.PrioridadeTarefaEnum.Alta));
+            
         }
 
         public void AtualizarRegistros(List<Tarefa> tarefas)
@@ -33,7 +32,7 @@ namespace E_Agenda.WinApp.ModuloTarefa
 
             foreach (Tarefa tarefa in tarefas)
             {
-                grid.Rows.Add(tarefa.id, tarefa.prioridade, tarefa.conclusao, tarefa.dataAbertura, tarefa.dataFinalizda);
+                grid.Rows.Add(tarefa.id, tarefa.nome,tarefa.prioridade, tarefa.conclusao, tarefa.dataAbertura, tarefa.dataFinalizda);
             }
         }
 
@@ -55,6 +54,11 @@ namespace E_Agenda.WinApp.ModuloTarefa
                 {
                     Name = "id",
                     HeaderText = "Id"
+                },
+                 new DataGridViewTextBoxColumn()
+                {
+                    Name = "nome",
+                    HeaderText = "Nome"
                 },
                  new DataGridViewTextBoxColumn()
                 {

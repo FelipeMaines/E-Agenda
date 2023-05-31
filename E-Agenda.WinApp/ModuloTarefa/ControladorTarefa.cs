@@ -198,7 +198,7 @@
             {
                 Itens item = telaItem.item;
 
-                tarefaSelecionada.listaItens.Add(item);
+                repositorioTarefa.InserirItem(tarefaSelecionada, item);
             }
         }
 
@@ -230,22 +230,23 @@
 
             if (verificarConclusao(tarefaSelecionada))
             {
-                tarefaSelecionada.dataFinalizda = DateTime.Now;
-                tarefaSelecionada.estaFinalizada = true;
+                repositorioTarefa.ConcluirItem(tarefaSelecionada);
             }
+
+            CarregarTarefas();
         }
 
         public bool verificarConclusao(Tarefa tarefaSelecionada)
         {
-            int contadorDeItens = tarefaSelecionada.listaItens.Count;
-            int contadorDeConclusao = 0;
+            double contadorDeItens = tarefaSelecionada.listaItens.Count;
+            double contadorDeConclusao = 0;
 
             contadorDeConclusao = tarefaSelecionada.listaItens.Count(item => item.estado == true);
 
             if (contadorDeItens == 0)
                 return false; 
 
-            tarefaSelecionada.conclusao = (contadorDeConclusao / contadorDeItens) * 100;
+            tarefaSelecionada.conclusao = (contadorDeConclusao / contadorDeItens) * (double)100.0;
 
             if (tarefaSelecionada.conclusao == 100)
             {

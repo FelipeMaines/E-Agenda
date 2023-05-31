@@ -7,7 +7,16 @@
             this.listaRegistros = tarefas;
         }
 
-     
+        public void ConcluirItem(Tarefa tarefaSelecionada)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void InserirItem(Tarefa tarefaSelecionada, Itens item)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<Tarefa> SelecionarItensEmAberto()
         {
             return listaRegistros.Where(x => x.conclusao < 100).ToList();
