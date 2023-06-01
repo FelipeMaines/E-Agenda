@@ -8,9 +8,9 @@ namespace E_Agenda.WinApp
 {
     public partial class Form1 : Form
     {
-        private IRepositorioBase<Contato> repositorioContato = new RepositorioContatoArquivo();
+        private IRepositorioContato repositorioContato = new RepositorioContatoArquivo();
         private IRepositorioCompromisso repositorioCompromisso = new RepositorioCompromissoArquivo();
-        private IRepositorioBase<Despesa> repositorioDespesa = new RepositorioDespesaArquivo();
+        private IRepositorioDespesa repositorioDespesa = new RepositorioDespesaArquivo();
         private IRepositorioTarefa repositorioTarefa = new RepositorioTarefaArquivo();
         private ControladorBase controlador;
         private static Form1 telaPrincipal;
