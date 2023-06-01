@@ -201,6 +201,9 @@
 
                 repositorioTarefa.InserirItem(tarefaSelecionada, item);
             }
+
+            verificarConclusao(tarefaSelecionada);
+            CarregarTarefas();
         }
 
         public override void ConcluirItens()
@@ -242,16 +245,11 @@
             contadorDeConclusao = tarefaSelecionada.listaItens.Count(item => item.estado == true);
 
             if (contadorDeItens == 0)
-                return false; 
+                return false;
 
-            tarefaSelecionada.conclusao = (contadorDeConclusao / contadorDeItens) * (double)100.0;
-
-            if (tarefaSelecionada.conclusao == 100)
-            {
-                return true;
-            }
-
-            return false;
+            return repositorioTarefa.VerificarConclusao(tarefaSelecionada, contadorDeItens, contadorDeConclusao);
         }
+
+        
     }
 }

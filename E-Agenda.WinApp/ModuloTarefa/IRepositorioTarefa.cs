@@ -7,5 +7,6 @@
         List<Tarefa> SelecionarItensEmAberto();
         List<Tarefa> SelecionarItensFinalizadas();
         List<Tarefa> SelecionarTodosItens();
+        bool VerificarConclusao(Tarefa tarefaSelecionada, double contadorDeItens, double contadorDeConclusao);
     }
 }

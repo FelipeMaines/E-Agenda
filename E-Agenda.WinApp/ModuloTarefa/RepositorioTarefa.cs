@@ -31,5 +31,10 @@
         {
             return listaRegistros;
         }
+
+        public bool VerificarConclusao(Tarefa tarefaSelecionada, double contadorDeItens, double contadorDeConclusao)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -2,10 +2,13 @@
 {
     public class RepositorioCategoriaArquivo : RepositorioArquivoBase<Categorias>, IRepositorioCategorias
     {
-        private const string NOME_ARQUIVO_CATEGORIAS = "C:\\temp\\categorias\\dados-categorias.bin";
-        public RepositorioCategoriaArquivo() : base(NOME_ARQUIVO_CATEGORIAS)
+        public RepositorioCategoriaArquivo(ContextoDados contextoDados) : base(contextoDados)
         {
-            
+        }
+
+        protected override List<Categorias> ObterRegistros()
+        {
+            return contextoDados.categorias;
         }
     }
 }

@@ -8,10 +8,14 @@ namespace E_Agenda.WinApp
 {
     public partial class Form1 : Form
     {
-        private IRepositorioContato repositorioContato = new RepositorioContatoArquivo();
-        private IRepositorioCompromisso repositorioCompromisso = new RepositorioCompromissoArquivo();
-        private IRepositorioDespesa repositorioDespesa = new RepositorioDespesaArquivo();
-        private IRepositorioTarefa repositorioTarefa = new RepositorioTarefaArquivo();
+
+        static ContextoDados contextoDados = new ContextoDados(carregarDados: true);
+
+        private IRepositorioContato repositorioContato = new RepositorioContatoArquivo(contextoDados);
+        private IRepositorioCompromisso repositorioCompromisso = new RepositorioCompromissoArquivo(contextoDados);
+        private IRepositorioCategorias repositorioCategoria = new RepositorioCategoriaArquivo(contextoDados);
+        private IRepositorioDespesa repositorioDespesa = new RepositorioDespesaArquivo(contextoDados);
+        private IRepositorioTarefa repositorioTarefa = new RepositorioTarefaArquivo(contextoDados);
         private ControladorBase controlador;
         private static Form1 telaPrincipal;
 
@@ -76,7 +80,7 @@ namespace E_Agenda.WinApp
         {
             labelTipoCadastro.Text = "Cadastro de Financas";
 
-            controlador = new ControladorDespesa(repositorioDespesa);
+            controlador = new ControladorDespesa(repositorioDespesa, repositorioCategoria);
 
             ConfigurarTelaPrincipal(controlador);
         }

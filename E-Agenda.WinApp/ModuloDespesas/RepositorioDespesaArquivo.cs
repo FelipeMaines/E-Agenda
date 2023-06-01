@@ -2,11 +2,13 @@
 {
     public class RepositorioDespesaArquivo : RepositorioArquivoBase<Despesa>, IRepositorioDespesa
     {
-        private const string NOME_ARQUIVO_DESPESAS = "C:\\temp\\despesas\\dados-despesas.bin";
-
-        public RepositorioDespesaArquivo() : base(NOME_ARQUIVO_DESPESAS)
+        public RepositorioDespesaArquivo(ContextoDados contextoDados) : base(contextoDados)
         {
+        }
 
+        protected override List<Despesa> ObterRegistros()
+        {
+            return contextoDados.despesas;
         }
     }
 }

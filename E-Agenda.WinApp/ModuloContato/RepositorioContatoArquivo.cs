@@ -3,13 +3,13 @@
     //public class RepositorioContatoArquivo : IRepositorioBase<Contato>
     public class RepositorioContatoArquivo : RepositorioArquivoBase<Contato>, IRepositorioContato
     {
-        private const string NOME_ARQUIVO_CONTATO = "C:\\temp\\contatos\\dados-contatos.bin";
-
-        public RepositorioContatoArquivo() : base(NOME_ARQUIVO_CONTATO)
+        public RepositorioContatoArquivo(ContextoDados contextoDados) : base(contextoDados)
         {
-            
         }
 
-       
+        protected override List<Contato> ObterRegistros()
+        {
+            return contextoDados.contatos;
+        }
     }
 }

@@ -5,7 +5,8 @@ namespace E_Agenda.WinApp.ModuloDespesas
     public class ControladorDespesa : ControladorBase
     {
         IRepositorioBase<Despesa> repositorioDespesa;
-        IRepositorioBase<Categorias> repositorioCategoria = new RepositorioCategoriaArquivo();
+        IRepositorioCategorias repositorioCategorias;
+        
         ListagemDespesaControl listagemDespesa;
         public override string ToolTipInserir => "";
 
@@ -18,9 +19,10 @@ namespace E_Agenda.WinApp.ModuloDespesas
         public override string ToolTipAdicionaritens => "";
 
         public override bool AdicionarItensHabilitado => true;
-        public ControladorDespesa(IRepositorioBase<Despesa> repositorio)
+        public ControladorDespesa(IRepositorioBase<Despesa> repositorio, IRepositorioCategorias repositorioCategoria)
         {
             repositorioDespesa = repositorio;
+            this.repositorioCategorias = repositorioCategoria;
 
         }
         public override void AdicionarItens()
@@ -31,7 +33,7 @@ namespace E_Agenda.WinApp.ModuloDespesas
             {
                 Categorias categoria = telaCategoria.Categoria;
 
-                repositorioCategoria.Inserir(categoria);
+                repositorioCategorias.Inserir(categoria);
             }
         }
 
@@ -63,7 +65,7 @@ namespace E_Agenda.WinApp.ModuloDespesas
             int id = 0;
             TelaDespesaForm telaDespesa = new TelaDespesaForm();
 
-            List<Categorias> listaCategorias = repositorioCategoria.SelecionarTodos();
+            List<Categorias> listaCategorias = repositorioCategorias.SelecionarTodos();
             telaDespesa.AtualizarListBox(listaCategorias);
             telaDespesa.Despesa = despesa;
             id = despesa.id;
@@ -118,7 +120,7 @@ namespace E_Agenda.WinApp.ModuloDespesas
         {
             TelaDespesaForm telaDespesa = new TelaDespesaForm();
 
-            List<Categorias> listaCategorias = repositorioCategoria.SelecionarTodos();
+            List<Categorias> listaCategorias = repositorioCategorias.SelecionarTodos();
             telaDespesa.AtualizarListBox(listaCategorias);
 
             DialogResult opcaoEscolhida = telaDespesa.ShowDialog();

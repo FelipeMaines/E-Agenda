@@ -1,6 +1,6 @@
 ﻿namespace E_Agenda.WinApp.ModuloDespesas
 {
-    public class repositorioCategoria
+    public class RepositorioCategoria
     {
         List<Categorias> listaCategoria = new List<Categorias>();
 

@@ -8,37 +8,30 @@ using System.Threading.Tasks;
 
 namespace E_Agenda.WinApp.Compartilhado
 {
-    public class RepositorioArquivoBase<T> where T : BaseEntidade<T>
+    public abstract class RepositorioArquivoBase<T> where T : BaseEntidade<T>
     {
-        protected List<T> listaRegistros = new List<T>();
         protected int contador;
-        protected string nomeArquivo = "C:\\temp\\contatos\\dados-contatos.json";
-        protected string NomeArquivo
-        {
-            get
-            {
-                return this.nomeArquivo;
-            }
+        protected ContextoDados contextoDados;
 
-            set
-            {
-                this.nomeArquivo = value;
-            }
-        }
-        public RepositorioArquivoBase(string caminho)
+        public RepositorioArquivoBase(ContextoDados contextoDados)
         {
-            nomeArquivo = caminho;
-            if (File.Exists(nomeArquivo))
-                CarregarArquivo();
+
+            this.contextoDados = contextoDados;
+
+            AtualizarContador();
         }
+
+        protected abstract List<T> ObterRegistros();
 
         public void Inserir(T item)
         {
+            List<T> registros = ObterRegistros();
+
             contador++;
             item.id = contador;
-            listaRegistros.Add(item);
+            registros.Add(item);
 
-            GravarTarefasEmArquivo();
+           contextoDados.GravarTarefasEmArquivo();
         }
 
         public void Editar(int id, T itemAtualizado)
@@ -47,54 +40,45 @@ namespace E_Agenda.WinApp.Compartilhado
 
             itemSelecionado.AtualizarInformacoes(itemAtualizado);
 
-            GravarTarefasEmArquivo();
+            contextoDados.GravarTarefasEmArquivo();
         }
 
         public void Excluir(T itemSelecionado)
         {
-            listaRegistros.Remove(itemSelecionado);
 
-            GravarTarefasEmArquivo();
+            List<T> registros = ObterRegistros();
+
+            registros.Remove(itemSelecionado);
+
+            contextoDados.GravarTarefasEmArquivo();
         }
 
         public virtual List<T> SelecionarTodosItens()
         {
-            return listaRegistros;
+            return ObterRegistros();
         }
 
         public T SelecionarPorId(int id)
         {
-            return listaRegistros.FirstOrDefault(x => x.id == id);
+            List<T> registros = ObterRegistros();
+
+            return registros.FirstOrDefault(x => x.id == id);
         }
 
         private void AtualizarContador()
         {
-            if (listaRegistros.Count > 0)
-                contador = listaRegistros.Max(x => x.id);
+            if (ObterRegistros().Count > 0)
+                contador = ObterRegistros().Max(x => x.id);
             else
                 contador = 0;
         }
 
         public List<T> SelecionarTodos()
         {
-            return listaRegistros;
+            return ObterRegistros();
         }
 
-        protected void GravarTarefasEmArquivo()
-        {
-            string strJason = JsonConvert.SerializeObject(listaRegistros);
-
-            File.WriteAllText(NomeArquivo, strJason);
-        }
-
-        private void CarregarArquivo()
-        {
-            string strJson = File.ReadAllText(NomeArquivo);
-
-            listaRegistros = JsonConvert.DeserializeObject<List<T>>(strJson);
-
-            AtualizarContador();
-        }
+       
 
        
     }
