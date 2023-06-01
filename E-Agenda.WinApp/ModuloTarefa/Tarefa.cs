@@ -3,6 +3,7 @@
     [Serializable]
     public class Tarefa : BaseEntidade<Tarefa>
     {
+        
         public string nome { get; set; }
         public PrioridadeTarefaEnum prioridade { get; set; }
 
@@ -14,6 +15,11 @@
         public DateTime dataAbertura { get; set; }
         public DateTime dataFinalizda { get; set; }
         public bool estaFinalizada { get; set; }
+
+        public Tarefa()
+        {
+
+        }
 
         public Tarefa(string nome, PrioridadeTarefaEnum prioridade)
         {

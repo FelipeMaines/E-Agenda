@@ -7,6 +7,11 @@
         public DateTime data { get; set; }
         public TelaDespesaForm.EnumModoPagamento pgto { get; set; }
 
+        public Despesa()
+        {
+            
+        }
+
         public Despesa(string descricao, int valor, DateTime data, TelaDespesaForm.EnumModoPagamento pgto1)
         {
             this.descricao = descricao;

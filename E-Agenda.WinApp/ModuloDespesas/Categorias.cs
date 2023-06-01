@@ -2,17 +2,22 @@
 {
     public class Categorias : BaseEntidade<Categorias>
     {
+        
+
+        public string nome { get; set; }
+        public string numero { get; set; }
+        public string rua { get; set; }
+
+        public Categorias()
+        {
+
+        }
         public Categorias(string nome, string numero, string rua)
         {
             this.nome = nome;
             this.numero = numero;
             this.rua = rua;
         }
-
-        public string nome { get; set; }
-        public string numero { get; set; }
-        public string rua { get; set; }
-
         public override void AtualizarInformacoes(Categorias registroAtualizado)
         {
             throw new NotImplementedException();

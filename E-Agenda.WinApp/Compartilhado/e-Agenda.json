@@ -1,1 +1,42 @@
-﻿
+{
+  "$id": "1",
+  "contatos": {
+    "$id": "2",
+    "$values": []
+  },
+  "compromissos": {
+    "$id": "3",
+    "$values": []
+  },
+  "tarefas": {
+    "$id": "4",
+    "$values": [
+      {
+        "$id": "5",
+        "nome": "asdasd",
+        "prioridade": 2,
+        "dataAbertura": "2023-06-01T00:00:00-03:00",
+        "dataFinalizda": "0001-01-01T00:00:00",
+        "estaFinalizada": false,
+        "listaItens": {
+          "$id": "6",
+          "$values": []
+        },
+        "listaItensProntos": {
+          "$id": "7",
+          "$values": []
+        },
+        "conclusao": 0,
+        "id": 1
+      }
+    ]
+  },
+  "categorias": {
+    "$id": "8",
+    "$values": []
+  },
+  "despesas": {
+    "$id": "9",
+    "$values": []
+  }
+}

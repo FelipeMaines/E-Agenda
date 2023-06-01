@@ -10,6 +10,10 @@ namespace E_Agenda.WinApp.ModuloCompromisso
         public DateTime horaFinal;
         public string online;
 
+        public Compromisso()
+        {
+            
+        }
         public Compromisso(string assunto, string local, DateTime data, DateTime horaInicio, DateTime horaFinal, string online)
         {
             this.assunto = assunto;

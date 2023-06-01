@@ -4,11 +4,12 @@ using E_Agenda.WinApp.ModuloTarefa;
 using System.Text.Json.Serialization;
 using System.Text.Json;
 
+
 namespace E_Agenda.WinApp.Compartilhado
 {
     public class ContextoDados
     {
-        private string NOME_ARQUIVO = "Compartilhado\\e-Agenda.json";
+        private const string NOME_ARQUIVO = "Compartilhado\\e-Agenda.json";
 
         public List<Contato> contatos;
         public List<Compromisso> compromissos;

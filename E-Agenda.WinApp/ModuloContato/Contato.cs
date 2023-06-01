@@ -8,6 +8,11 @@
         public string empresa;
         public string telefone;
         public string cargo;
+
+        public Contato()
+        {
+            
+        }
         public Contato(string nome,string email,string telefone, string empresa, string cargo)
         {
             this.nome = nome;
