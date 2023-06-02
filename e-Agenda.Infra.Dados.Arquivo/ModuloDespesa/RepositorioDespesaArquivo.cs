@@ -1,4 +1,7 @@
-﻿namespace E_Agenda.WinApp.ModuloDespesas
+﻿using E_Agenda.Dominio.ModuloDespesas;
+using E_Agenda.Infra.Compartilhado;
+
+namespace E_Agenda.Infra.Dados.Arquivo.ModuloDespesa
 {
     public class RepositorioDespesaArquivo : RepositorioArquivoBase<Despesa>, IRepositorioDespesa
     {

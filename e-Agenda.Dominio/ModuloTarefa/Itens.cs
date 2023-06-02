@@ -1,4 +1,4 @@
-﻿namespace E_Agenda.WinApp.ModuloTarefa
+﻿namespace E_Agenda.Dominio.ModuloTarefa
 {
     [Serializable]
     public class Itens : BaseEntidade<Itens>
@@ -21,7 +21,7 @@
 
         public override void AtualizarInformacoes(Itens registroAtualizado)
         {
-            MessageBox.Show("Test");
+            return;
         }
 
         public override string ToString()

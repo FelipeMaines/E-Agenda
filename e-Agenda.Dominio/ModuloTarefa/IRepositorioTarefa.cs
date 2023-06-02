@@ -1,4 +1,4 @@
-﻿namespace E_Agenda.WinApp.ModuloTarefa
+﻿namespace E_Agenda.Dominio.ModuloTarefa
 {
     public interface IRepositorioTarefa : IRepositorioBase<Tarefa>
     {

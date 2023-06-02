@@ -1,4 +1,4 @@
-﻿namespace E_Agenda.WinApp.ModuloDespesas
+﻿namespace E_Agenda.Dominio.ModuloDespesas
 {
     public class Categorias : BaseEntidade<Categorias>
     {

@@ -1,5 +1,9 @@
 ﻿
-namespace E_Agenda.WinApp.ModuloCompromisso
+using E_Agenda.Dominio.Compartilhado;
+using System;
+using System.Collections.Generic;
+
+namespace E_Agenda.Dominio.ModuloCompromisso
 {
     public class Compromisso : BaseEntidade<Compromisso>
     {

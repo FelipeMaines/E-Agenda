@@ -1,18 +1,18 @@
-﻿namespace E_Agenda.WinApp.ModuloDespesas
+﻿namespace E_Agenda.Dominio.ModuloDespesas
 {
     public class Despesa : BaseEntidade<Despesa>
     {
         public string descricao {  get; set; }
         public int valor { get; set; }
         public DateTime data { get; set; }
-        public TelaDespesaForm.EnumModoPagamento pgto { get; set; }
+        public EnumModoPagamento pgto { get; set; }
 
         public Despesa()
         {
             
         }
 
-        public Despesa(string descricao, int valor, DateTime data, TelaDespesaForm.EnumModoPagamento pgto1)
+        public Despesa(string descricao, int valor, DateTime data, EnumModoPagamento pgto1)
         {
             this.descricao = descricao;
             this.valor = valor;

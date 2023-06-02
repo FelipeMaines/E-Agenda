@@ -1,4 +1,6 @@
-﻿namespace E_Agenda.WinApp.ModuloTarefa
+﻿using E_Agenda.Dominio.ModuloTarefa;
+
+namespace E_Agenda.Infra.Dados.Arquivo.ModuloTarefa
 {
     public class RepositorioTarefaArquivo :RepositorioArquivoBase<Tarefa> ,IRepositorioTarefa
     {

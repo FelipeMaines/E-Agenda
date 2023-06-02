@@ -1,4 +1,6 @@
-﻿namespace E_Agenda.WinApp.ModuloTarefa
+﻿using E_Agenda.Dominio.ModuloTarefa;
+
+namespace E_Agenda.WinApp.ModuloTarefa
 {
     public partial class TelaTarefaForm : Form
     {
@@ -26,10 +28,7 @@
 
         }
 
-        public enum PrioridadeTarefaEnum
-        {
-            Baixa, Normal, Alta
-        }
+       
 
         private void CarregarTarefas()
         {

@@ -1,4 +1,6 @@
-﻿namespace E_Agenda.WinApp.Compartilhado
+﻿using System;
+
+namespace E_Agenda.Dominio.Compartilhado
 {
     [Serializable]
     public abstract class BaseEntidade<TEntidade>

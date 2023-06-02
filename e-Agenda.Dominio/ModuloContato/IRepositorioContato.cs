@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace E_Agenda.WinApp.ModuloDespesas
+namespace E_Agenda.Dominio.ModuloContato
 {
-    public interface IRepositorioDespesa : IRepositorioBase<Despesa>
+    public interface IRepositorioContato : IRepositorioBase<Contato>
     {
     }
 }

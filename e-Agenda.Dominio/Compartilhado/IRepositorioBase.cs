@@ -1,11 +1,5 @@
-﻿using E_Agenda.WinApp.ModuloContato;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace E_Agenda.WinApp.Compartilhado
+﻿
+namespace E_Agenda.Dominio.Compartilhado
 {
     public interface IRepositorioBase<T> where T : BaseEntidade<T>
     {

@@ -1,4 +1,6 @@
-﻿namespace E_Agenda.WinApp.ModuloCompromisso
+﻿
+
+namespace E_Agenda.Dominio.ModuloCompromisso
 {
     public interface IRepositorioCompromisso : IRepositorioBase<Compromisso>
     {

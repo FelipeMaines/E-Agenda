@@ -1,4 +1,6 @@
-﻿namespace E_Agenda.WinApp.ModuloCompromisso
+﻿using E_Agenda.Dominio.ModuloCompromisso;
+
+namespace E_Agenda.Infra.Dados.Arquivo.ModuloCompromisso
 {
     public class RepositorioCompromissoArquivo : RepositorioArquivoBase<Compromisso> , IRepositorioCompromisso 
     {

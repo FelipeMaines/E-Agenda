@@ -1,4 +1,5 @@
-﻿namespace E_Agenda.WinApp.ModuloTarefa
+﻿
+namespace E_Agenda.Dominio.ModuloTarefa
 {
     [Serializable]
     public class Tarefa : BaseEntidade<Tarefa>

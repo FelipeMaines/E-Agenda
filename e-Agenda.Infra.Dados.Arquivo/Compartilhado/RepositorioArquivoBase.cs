@@ -1,12 +1,9 @@
-﻿using E_Agenda.WinApp.ModuloContato;
-using E_Agenda.WinApp.ModuloTarefa;
-using System;
+﻿using E_Agenda.Dominio.Compartilhado;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace E_Agenda.WinApp.Compartilhado
+
+namespace E_Agenda.Infra.Compartilhado
 {
     public abstract class RepositorioArquivoBase<T> where T : BaseEntidade<T>
     {

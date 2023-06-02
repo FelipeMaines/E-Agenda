@@ -1,3 +1,8 @@
+using E_Agenda.Infra.Compartilhado;
+using E_Agenda.Infra.Dados.Arquivo.ModuloCompromisso;
+using E_Agenda.Infra.Dados.Arquivo.ModuloContato;
+using E_Agenda.Infra.Dados.Arquivo.ModuloDespesa;
+using E_Agenda.Infra.Dados.Arquivo.ModuloTarefa;
 using E_Agenda.WinApp.Compartilhado;
 using E_Agenda.WinApp.ModuloCompromisso;
 using E_Agenda.WinApp.ModuloContato;

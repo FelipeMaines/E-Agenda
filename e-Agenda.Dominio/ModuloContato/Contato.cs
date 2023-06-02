@@ -1,4 +1,8 @@
-﻿namespace E_Agenda.WinApp.ModuloContato
+﻿using E_Agenda.Dominio.Compartilhado;
+using System;
+using System.Text.RegularExpressions;
+
+namespace E_Agenda.Dominio.ModuloContato
 {
     [Serializable]
     public class Contato : BaseEntidade<Contato>

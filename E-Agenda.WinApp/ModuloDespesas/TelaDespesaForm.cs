@@ -57,12 +57,7 @@ namespace E_Agenda.WinApp.ModuloDespesas
                 cbPgto.Items.Add(pagamento);
             }
         }
-
-        public enum EnumModoPagamento
-        {
-            Dinheiro, Cartao, Pix
-        }
-
+    
         private void label3_Click(object sender, EventArgs e)
         {
 
