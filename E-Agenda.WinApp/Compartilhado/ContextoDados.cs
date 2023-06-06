@@ -1,12 +1,14 @@
-﻿using E_Agenda.Dominio.ModuloContato;
-using E_Agenda.Dominio.ModuloDespesas;
+﻿using E_Agenda.WinApp.ModuloContato;
+using E_Agenda.WinApp.ModuloDespesas;
+using E_Agenda.WinApp.ModuloTarefa;
 using System.Text.Json.Serialization;
 using System.Text.Json;
+using E_Agenda.Dominio.ModuloDespesas;
 using E_Agenda.Dominio.ModuloCompromisso;
 using E_Agenda.Dominio.ModuloTarefa;
-using System.IO;
+using E_Agenda.Dominio.ModuloContato;
 
-namespace E_Agenda.Infra.Compartilhado
+namespace E_Agenda.WinApp.Compartilhado
 {
     public class ContextoDados
     {
