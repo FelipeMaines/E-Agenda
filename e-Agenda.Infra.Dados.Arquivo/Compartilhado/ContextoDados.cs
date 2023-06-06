@@ -3,6 +3,7 @@ using E_Agenda.Dominio.ModuloDespesas;
 using System.Text.Json.Serialization;
 using System.Text.Json;
 using E_Agenda.Dominio.ModuloCompromisso;
+using System.Collections.Generic;
 using E_Agenda.Dominio.ModuloTarefa;
 using System.IO;
 
